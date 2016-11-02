@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             TextView theTextView = (TextView)findViewById(R.id.textView);
-            theTextView.setText("You Need Oil!");
+            theTextView.setText("You Need Tires!");
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
         }
     };

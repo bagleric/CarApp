@@ -9,6 +9,7 @@ import java.util.Calendar;
  */
 
 public class calendar {
+
     public String getCurrentDate(){
         String currentDate;
         DateFormat df = new SimpleDateFormat("MM/dd/yy");
