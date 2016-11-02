@@ -3,6 +3,10 @@ package com.example.carapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,14 +16,59 @@ public class MainActivity extends AppCompatActivity {
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-
+    String buttonName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
+        Button buttonTire = (Button) findViewById(R.id.buttonTire);
+        buttonTire.setOnClickListener(kListener);
 
+        Button buttonButton = (Button) findViewById(R.id.buttonButton);
+        buttonButton.setOnClickListener(lListener);
+
+        Button buttonInsurance = (Button) findViewById(R.id.buttonInsurance);
+        buttonInsurance.setOnClickListener(jListener);
+
+        Button buttonOil = (Button) findViewById(R.id.buttonOil);
+        buttonOil.setOnClickListener(mListener);
+    }
+    private View.OnClickListener mListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            TextView theTextView = (TextView)findViewById(R.id.textView);
+            theTextView.setText("Your car needs Oil!");
+            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+        }
+    };
+
+    private View.OnClickListener jListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            TextView theTextView = (TextView)findViewById(R.id.textView);
+            theTextView.setText("You need Insurance!");
+            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+        }
+    };
+
+    private View.OnClickListener lListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            TextView theTextView = (TextView)findViewById(R.id.textView);
+            theTextView.setText("You need a button!");
+            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+        }
+    };
+
+    private View.OnClickListener kListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            TextView theTextView = (TextView)findViewById(R.id.textView);
+            theTextView.setText("You Need Oil!");
+            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+        }
+    };
 
     public int getOilMiles() {
         return oilMiles;
