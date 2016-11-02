@@ -1,5 +1,6 @@
 package com.example.carapp;
 
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,8 +11,11 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void CheckCuirrentDate() throws Exception {
+//        onView(withId("buttonButton")).perform(click());
+//        onView(withId(R.id.textView)).check(matches(withText("Hello, World!")));
+
     }
 }

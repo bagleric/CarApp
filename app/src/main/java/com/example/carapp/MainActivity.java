@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-    String buttonName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener lListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            calendar cal = new calendar();
             TextView theTextView = (TextView)findViewById(R.id.textView);
-            theTextView.setText("You need a button!");
+            String date = cal.getCurrentDate();
+            theTextView.setText(date);
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
         }
     };
@@ -94,11 +95,7 @@ public class MainActivity extends AppCompatActivity {
         this.driverMiles = Dmiles;
     }
 
-    public Calendar getCurrentDate(){
-        String currentDate;
-        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-        Calendar calobj = Calendar.getInstance();
-        System.out.println(df.format(calobj.getTime()));
-        return calobj;
-    }
+
 }
+
+
