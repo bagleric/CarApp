@@ -7,14 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonOil = (Button) findViewById(R.id.buttonOil);
         buttonOil.setOnClickListener(mListener);
+        Service oil = new Service();
     }
     private View.OnClickListener mListener= new View.OnClickListener() {
         @Override
