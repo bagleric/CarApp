@@ -25,4 +25,14 @@ public class ExampleUnitTest {
         String currentDate = df.format(calobj.getTime());
         assert(test.equals(currentDate));
     }
+
+    @Test
+    public void CheckButtonClick() throws Exception {
+        calendar cal = new calendar();
+        String test = cal.getCurrentDate();
+        Calendar calobj = Calendar.getInstance();
+        DateFormat df = new SimpleDateFormat("MM/dd/yy");
+        String currentDate = df.format(calobj.getTime());
+        assert(test.equals(currentDate));
+    }
 }
