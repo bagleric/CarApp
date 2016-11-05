@@ -58,7 +58,7 @@
         android:background="@android:color/transparent"
         android:layout_height="90dp"
         app:srcCompat="@mipmap/car"
-        android:id="@+id/imageButton"
+        android:id="@+id/carButton"
         android:scaleType="centerCrop"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -71,12 +71,13 @@
         android:background="@android:color/transparent"
         android:layout_width="150dp"
         app:srcCompat="@mipmap/oil"
-        android:id="@+id/imageButton3"
+        android:id="@+id/oilButton"
+        android:layout_marginRight="37dp"
+        android:layout_marginEnd="37dp"
         android:scaleType="centerCrop"
-        android:layout_height="90dp"
-        android:layout_alignBottom="@+id/buttonTire"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton"
-        android:layout_marginBottom="56dp" />
+        android:layout_alignTop="@+id/buttonTire"
+        android:layout_alignRight="@+id/carButton"
+        android:layout_alignEnd="@+id/carButton"
+        android:layout_height="90dp" />
 
 </RelativeLayout>
