@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             TextView theTextView = (TextView)findViewById(R.id.textView);
-            theTextView.setText("Your car needs Oil!");
+            theTextView.setText("Next Oil Change On");
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
         }
     };
