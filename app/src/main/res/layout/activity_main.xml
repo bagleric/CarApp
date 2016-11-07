@@ -89,10 +89,6 @@
         android:layout_height="100dp"
         android:id="@+id/textView2"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
 
