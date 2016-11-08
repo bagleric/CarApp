@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private int oilMiles;
@@ -17,40 +17,46 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonTire = (Button) findViewById(R.id.buttonTire);
-        buttonTire.setOnClickListener(kListener);
+        Button buttonTire = (Button) findViewById(R.id.tireButton);
+        buttonTire.setOnClickListener(tireListener);
 
-        Button buttonButton = (Button) findViewById(R.id.buttonButton);
-        buttonButton.setOnClickListener(lListener);
+        Button buttonButton = (Button) findViewById(R.id.addButton);
+        buttonButton.setOnClickListener(addListener);
 
-        ImageButton buttonInsurance = (ImageButton) findViewById(R.id.carButton);
-        buttonInsurance.setOnClickListener(jListener);
+        Button buttonInsurance = (Button) findViewById(R.id.carButton);
+        buttonInsurance.setOnClickListener(carListener);
 
-        ImageButton buttonOil = (ImageButton) findViewById(R.id.oilButton);
-        buttonOil.setOnClickListener(mListener);
+        Button buttonOil = (Button) findViewById(R.id.oilButton);
+        buttonOil.setOnClickListener(oilListener);
         Service oil = new Service();
     }
-    private View.OnClickListener mListener= new View.OnClickListener() {
+    private View.OnClickListener oilListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Button button = (Button)findViewById(R.id.oilButton);
+            button.setText("Oil Changed! Great Job!");
             TextView theTextView = (TextView)findViewById(R.id.textView);
             theTextView.setText("Next Oil Change On");
-            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, ("Next Oil Change On"), Toast.LENGTH_LONG).show();
         }
     };
 
-    private View.OnClickListener jListener= new View.OnClickListener() {
+    private View.OnClickListener carListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Button button = (Button)findViewById(R.id.carButton);
+            button.setText("You Need insurance!");
             TextView theTextView = (TextView)findViewById(R.id.textView);
             theTextView.setText("You need Insurance!");
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
         }
     };
 
-    private View.OnClickListener lListener= new View.OnClickListener() {
+    private View.OnClickListener addListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Button button = (Button)findViewById(R.id.addButton);
+            button.setText("You touched the add button!");
             CalendarClass cal = new CalendarClass();
             TextView theTextView = (TextView)findViewById(R.id.textView);
             String date = cal.getCurrentDate();
@@ -59,12 +65,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private View.OnClickListener kListener= new View.OnClickListener() {
+    private View.OnClickListener tireListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Button button = (Button)findViewById(R.id.tireButton);
+            button.setText("You touched the tire button!");
             TextView theTextView = (TextView)findViewById(R.id.textView);
             theTextView.setText("You Need Tires!");
-            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
         }
     };
 
