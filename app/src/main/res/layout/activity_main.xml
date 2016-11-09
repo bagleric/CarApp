@@ -9,20 +9,6 @@
     tools:context="com.example.carapp.MainActivity">
 
     <Button
-        android:text="CarInformation"
-        android:layout_width="wrap_content"
-        android:layout_height="140dp"
-        android:id="@+id/carButton"
-        android:background="@drawable/car"
-        android:layout_marginTop="0dp"
-        android:gravity="center_vertical|start"
-        android:paddingStart="150dp"
-        android:textColor="@android:color/white"
-        android:paddingRight="20dp"
-        android:paddingEnd="20dp"
-        android:paddingLeft="150dp" />
-
-    <Button
         android:text="Next Tire Service"
         android:layout_width="match_parent"
         android:layout_height="140dp"
@@ -88,6 +74,22 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/textView2" />
+
+    <Button
+        android:text="CarInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:id="@+id/carButton"
+        android:background="@drawable/car"
+        android:gravity="center_vertical|start"
+        android:paddingStart="150dp"
+        android:textColor="@android:color/white"
+        android:paddingRight="20dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
