@@ -20,11 +20,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);/////////////////////
+        //application life cycle
+        if (prefs.getBoolean("firstrun", true)) {
+            Toast.makeText(MainActivity.this, ("First Time Use"), Toast.LENGTH_LONG).show();
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
+
         Button buttonTire = (Button) findViewById(R.id.tireButton);
         buttonTire.setOnClickListener(tireListener);
 
@@ -37,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         Button buttonOil = (Button) findViewById(R.id.oilButton);
         buttonOil.setOnClickListener(oilListener);
         Service oil = new Service();
+
+
     }
 
         private View.OnClickListener oilListener= new View.OnClickListener() {
