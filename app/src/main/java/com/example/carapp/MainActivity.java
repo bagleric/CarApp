@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.oilButton);
             button.setText("Oil Changed! Great Job!");
-            TextView theTextView = (TextView)findViewById(R.id.textView);
-            theTextView.setText("Next Oil Change On");
+//            TextView theTextView = (TextView)findViewById(R.id.textView);
+//            theTextView.setText("Next Oil Change On");
             Toast.makeText(MainActivity.this, ("Next Oil Change On"), Toast.LENGTH_LONG).show();
         }
     };
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.carButton);
             button.setText("You Need insurance!");
-            TextView theTextView = (TextView)findViewById(R.id.textView);
-            theTextView.setText("You need Insurance!");
+//            TextView theTextView = (TextView)findViewById(R.id.textView);
+//            theTextView.setText("You need Insurance!");
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
         }
     };
@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.addButton);
             button.setText("You touched the add button!");
-            CalendarClass cal = new CalendarClass();
-            TextView theTextView = (TextView)findViewById(R.id.textView);
-            String date = cal.getCurrentDate();
-            theTextView.setText(date);
+//            CalendarClass cal = new CalendarClass();
+//            TextView theTextView = (TextView)findViewById(R.id.textView);
+//            String date = cal.getCurrentDate();
+//            theTextView.setText(date);
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
         }
     };
@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.tireButton);
             button.setText("You touched the tire button!");
-            TextView theTextView = (TextView)findViewById(R.id.textView);
-            theTextView.setText("You Need Tires!");
+//            TextView theTextView = (TextView)findViewById(R.id.textView);
+//            theTextView.setText("You Need Tires!");
             Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
         }
     };
