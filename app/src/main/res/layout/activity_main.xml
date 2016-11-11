@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-<LinearLayoutyout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.carapp.MainActivity">
+    tools:context="com.example.carapp.MainActivity"
+    android:orientation="vertical">
 
     <Button
         android:text="CarInformation"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:id="@+id/carButton"
         android:background="@drawable/car"
         android:layout_marginTop="0dp"
@@ -26,7 +32,7 @@
     <Button
         android:text="Next Tire Service"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:id="@+id/tireButton"
         android:background="@drawable/tire"
         android:layout_below="@+id/carButton"
@@ -39,7 +45,7 @@
     <Button
         android:text="Next oil change"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:id="@+id/oilButton"
         android:background="@drawable/oil"
         android:layout_below="@+id/tireButton"
@@ -54,14 +60,13 @@
 
     <Button
         android:text="Click to add a service"
-        android:textColorHighlight="@color/colorAccent"
         android:gravity="center_vertical|left"
         android:paddingLeft="20dp"
         android:paddingRight="150dp"
         android:paddingStart="20dp"
         android:paddingEnd="150dp"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:id="@+id/addButton"
         android:layout_below="@+id/oilButton"
         android:layout_alignParentLeft="true"
@@ -81,14 +86,7 @@
         android:text="helloWorld"
         android:textColor="@color/colorAccent"/>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView2" />
 
 
-</LinearLayoutyout>
+</LinearLayout>
+</ScrollView>
