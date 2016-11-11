@@ -1,5 +1,6 @@
 package com.example.carapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,12 +12,19 @@ public class MainActivity extends AppCompatActivity {
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-
+    SharedPreferences prefs = null;//////////////////////////
+    public static final String PREFS_NAME = "MyPrefsFile";/////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);/////////////////////
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
         Button buttonTire = (Button) findViewById(R.id.tireButton);
         buttonTire.setOnClickListener(tireListener);
 
@@ -30,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         buttonOil.setOnClickListener(oilListener);
         Service oil = new Service();
     }
-    private View.OnClickListener oilListener= new View.OnClickListener() {
+
+        private View.OnClickListener oilListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.oilButton);

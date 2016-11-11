@@ -77,20 +77,6 @@
         android:background="@drawable/add" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="125dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/textView"
-        android:visibility="visible"
-        android:typeface="normal"
-        android:text="helloWorld"
-        android:textColor="@color/colorAccent"/>
-
-
-
 </LinearLayout>
 
 </ScrollView>
