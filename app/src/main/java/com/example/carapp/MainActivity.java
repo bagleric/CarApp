@@ -72,6 +72,8 @@ startActivity(information);
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.addButton);
             button.setText("You touched the add button!");
+            Intent information = new Intent(MainActivity.this, Information_.class);
+            startActivity(information);
            // CalendarClass cal = new CalendarClass();
            // TextView theTextView = (TextView)findViewById(R.id.textView);
            // String date = cal.getCurrentDate();
