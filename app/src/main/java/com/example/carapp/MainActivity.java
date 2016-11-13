@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.oilButton);
             button.setText("Oil Changed! Great Job!");
-            Toast.makeText(MainActivity.this, ("Next Oil Change On"), Toast.LENGTH_LONG).show();
+            //Toast.makeText(MainActivity.this, ("Next Oil Change On"), Toast.LENGTH_LONG).show();
+            Intent calendar = new Intent(MainActivity.this, My_calendar.class);
+            startActivity(calendar);
         }
     };
 
@@ -72,17 +74,8 @@ startActivity(information);
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.addButton);
             button.setText("You touched the add button!");
-            Intent information = new Intent(MainActivity.this, Information_.class);
-            startActivity(information);
-           // CalendarClass cal = new CalendarClass();
-           // TextView theTextView = (TextView)findViewById(R.id.textView);
-           // String date = cal.getCurrentDate();
-           // theTextView.setText(date);
-//            CalendarClass cal = new CalendarClass();
-//            TextView theTextView = (TextView)findViewById(R.id.textView);
-//            String date = cal.getCurrentDate();
-//            theTextView.setText(date);
-            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+            Intent add = new Intent(MainActivity.this, extraFeatures.class);
+            startActivity(add);
         }
     };
 
@@ -91,7 +84,8 @@ startActivity(information);
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.tireButton);
             button.setText("You touched the tire button!");
-
+            Intent calendar = new Intent(MainActivity.this, My_calendar.class);
+            startActivity(calendar);
             Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
         }
     };
