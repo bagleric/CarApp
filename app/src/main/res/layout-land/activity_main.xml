@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.carapp.MainActivity"
+        android:orientation="horizontal">
+
+        <Button
+            android:text="CarInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carButton"
+            android:background="@drawable/car"
+            android:layout_marginTop="0dp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="150dp"
+            android:textColor="@android:color/white"
+            android:paddingRight="20dp"
+            android:paddingEnd="20dp"
+            android:paddingLeft="150dp" />
+
+
+    <Button
+        android:text="Click to add a service"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="20dp"
+        android:paddingRight="150dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        android:background="@drawable/add"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/carButton"
+        android:layout_toEndOf="@+id/carButton" />
+
+    <Button
+        android:text="Next Tire Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tireButton"
+        android:background="@drawable/tire"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="150dp"
+        android:paddingRight="150dp"
+        android:layout_below="@+id/carButton"
+        android:layout_toLeftOf="@+id/oilButton"
+        android:layout_toStartOf="@+id/oilButton" />
+
+    <Button
+        android:text="Next oil change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/oilButton"
+        android:background="@drawable/oil"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="150dp"
+        android:paddingRight="20dp"
+        android:paddingStart="150dp"
+        android:paddingEnd="20dp"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/carButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    />
+
+
+</RelativeLayout>
+

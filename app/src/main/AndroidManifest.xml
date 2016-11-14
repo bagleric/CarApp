@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Information_"></activity>
+        <activity android:name=".extraFeatures"></activity>
+        <activity android:name=".My_calendar"></activity>
     </application>
 
 </manifest>
