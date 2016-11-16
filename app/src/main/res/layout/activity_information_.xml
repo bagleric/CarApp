@@ -25,7 +25,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
-        android:id="@+id/editText"
+        android:id="@+id/Make"
         android:hint="Make" />
 
     <EditText
@@ -33,10 +33,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/Model"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText3"
+        android:id="@+id/Year"
         android:hint="Year" />
 
     <TextView
@@ -58,10 +58,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/Year"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText4"
+        android:id="@+id/Odometer"
         android:hint="Odometer" />
 
     <EditText
@@ -69,10 +69,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText4"
-        android:layout_alignRight="@+id/editText4"
-        android:layout_alignEnd="@+id/editText4"
-        android:id="@+id/editText5"
+        android:layout_below="@+id/Odometer"
+        android:layout_alignRight="@+id/Odometer"
+        android:layout_alignEnd="@+id/Odometer"
+        android:id="@+id/License"
         android:hint="License #" />
 
     <EditText
@@ -80,11 +80,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/License"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="44dp"
-        android:id="@+id/editText6"
+        android:id="@+id/Name"
         android:hint="Insurance Name" />
 
     <EditText
@@ -92,10 +92,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText6"
-        android:layout_alignRight="@+id/editText6"
-        android:layout_alignEnd="@+id/editText6"
-        android:id="@+id/editText7"
+        android:layout_below="@+id/Name"
+        android:layout_alignRight="@+id/Name"
+        android:layout_alignEnd="@+id/Name"
+        android:id="@+id/Phone"
         android:hint="Insurance Phone #" />
 
     <EditText
@@ -103,10 +103,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText7"
+        android:layout_below="@+id/Phone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText8"
+        android:id="@+id/Policy"
         android:hint="Policy #" />
 
     <EditText
@@ -114,9 +114,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/Model"
         android:hint="Model"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/Make"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignBottom="@+id/textView3"
-        android:id="@+id/button2"
+        android:id="@+id/submitButton"
         android:layout_centerHorizontal="true"/>
 
 

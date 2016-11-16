@@ -10,11 +10,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    String make;
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-//    SharedPreferences prefs = null;//////////////////////////
-//    public static final String PREFS_NAME = "MyPrefsFile";/////////////
+    SharedPreferences prefs = null;//////////////////////////
+    public static final String PREFS_NAME = "MyPrefsFile";/////////////
     private static final String TAG = MainActivity.class.getSimpleName();//////
 
     @Override
@@ -22,20 +23,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);/////////////////////
+        ///////////////////////
         //application life cycle
         if (savedInstanceState != null) {
             Log.d(TAG, "onCreate() Restoring previous state");
+            prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
             /* restore state */
         } else {
             Log.d(TAG, "onCreate() No saved state available");
             /* initialize app */
+            Intent information = new Intent(MainActivity.this, Information_.class);
+            startActivity(information);
         }
 
-//        if (prefs.getBoolean("firstrun", true)) {
-//            Toast.makeText(MainActivity.this, ("First Time Use"), Toast.LENGTH_LONG).show();
-//            prefs.edit().putBoolean("firstrun", false).commit();
-//        }
     }
 
     @Override
