@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,19 +13,29 @@ public class MainActivity extends AppCompatActivity {
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-    SharedPreferences prefs = null;//////////////////////////
-    public static final String PREFS_NAME = "MyPrefsFile";/////////////
+//    SharedPreferences prefs = null;//////////////////////////
+//    public static final String PREFS_NAME = "MyPrefsFile";/////////////
+    private static final String TAG = MainActivity.class.getSimpleName();//////
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);/////////////////////
+        //prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);/////////////////////
         //application life cycle
-        if (prefs.getBoolean("firstrun", true)) {
-            Toast.makeText(MainActivity.this, ("First Time Use"), Toast.LENGTH_LONG).show();
-            prefs.edit().putBoolean("firstrun", false).commit();
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreate() Restoring previous state");
+            /* restore state */
+        } else {
+            Log.d(TAG, "onCreate() No saved state available");
+            /* initialize app */
         }
+
+//        if (prefs.getBoolean("firstrun", true)) {
+//            Toast.makeText(MainActivity.this, ("First Time Use"), Toast.LENGTH_LONG).show();
+//            prefs.edit().putBoolean("firstrun", false).commit();
+//        }
     }
 
     @Override
@@ -52,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.oilButton);
             button.setText("Oil Changed! Great Job!");
-            //Toast.makeText(MainActivity.this, ("Next Oil Change On"), Toast.LENGTH_LONG).show();
             Intent calendar = new Intent(MainActivity.this, My_calendar.class);
             startActivity(calendar);
         }
