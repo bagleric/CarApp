@@ -2,6 +2,7 @@ package com.example.carapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -9,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class My_calendar extends AppCompatActivity {
-
+    final String[] services = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,12 +18,9 @@ public class My_calendar extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.serviceList);
 
         // Defined Array values to show in ListView
-        final String[] values = new String[] {
-                "Flush Transmission: 29 November 2017",
-                "Wash Car: 12 December 2016",
-                "Buy New Filter: 10 January 2017",
-                "Oil Change: 12 May 2017"
-        };
+        Log.i("Calendar", "You made it to the calendar");
+
+
 
         // Define a new Adapter
         // First parameter - Context
@@ -31,7 +29,7 @@ public class My_calendar extends AppCompatActivity {
         // Forth - the Array of data
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+                android.R.layout.simple_list_item_1, android.R.id.text1, services);
 
 
         // Assign adapter to ListView
@@ -54,10 +52,13 @@ public class My_calendar extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
                         .show();
-
+                Log.i("Calendar", "You made it to the calendar");
             }
 
         });
     }
+public void addService(Service theService){
+    services[services.length] = theService.name + ": " + theService.getNextServiceDate() + " or " + theService.getNextServiceMiles();
+}
 
 }
