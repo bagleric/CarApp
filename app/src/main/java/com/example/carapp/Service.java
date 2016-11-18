@@ -6,7 +6,15 @@ package com.example.carapp;
 
 public class Service {
     MainActivity main = new MainActivity();
-    private static int milesToNext = 5000;
+
+    Service(){
+        name = "";
+        milesToNext = 5000;
+        timeToNext = 3;
+
+    }
+    public String name;
+    private static int milesToNext;
     private static int timeToNext;
     private int lastMiles = 100000;
     private int nextServiceMiles;
