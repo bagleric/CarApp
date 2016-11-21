@@ -20,8 +20,11 @@ import java.util.Date;
 public class extraFeatures extends AppCompatActivity {
     String nameSpecialRequest;
     String miles;
-    String Odometer;
+    String CurrentOdometer;
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
+
+    //This needs to store the information onclick, then create an object
+    //store the object in a dates array, then kick the user back to the main activity.
     @Override
     protected void onCreate(Bundle savedExtraFeaturesState) {
         super.onCreate(savedExtraFeaturesState);
@@ -42,19 +45,19 @@ public class extraFeatures extends AppCompatActivity {
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.button);
             //we need this just commented out for testing
-            EditText _nameSpecialR = (EditText) findViewById(R.id.name);
-            setNameSR( _nameSpecialR.getText().toString());
 
-            EditText setOd = (EditText) findViewById(R.id.Odometer);
-            setOdometer( setOd.getText().toString());
+           EditText _nameSpecialR = (EditText) findViewById(R.id.name);
+           setNameSR(_nameSpecialR.getText().toString());
 
+           EditText setOd = (EditText) findViewById(R.id.Odometer);
+           setOdometer(setOd.getText().toString());
 
-            EditText setM = (EditText) findViewById(R.id.milesTill);
-            setMiles( setM.getText().toString());
+           EditText setM = (EditText) findViewById(R.id.milesTill);
+           setMiles(setM.getText().toString());
 
-            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
-            int num = Integer.valueOf(MnthsTill.getText().toString());
-            MonthsTill(num);
+           EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
+           int num = Integer.valueOf(MnthsTill.getText().toString());
+           MonthsTill(num);
 
 
         }
@@ -69,7 +72,7 @@ public class extraFeatures extends AppCompatActivity {
     }
 
     public String Odometer() {
-        return Odometer;
+        return CurrentOdometer;
     }
 
     public DateFormat date(){return dateFormat;}
@@ -92,7 +95,6 @@ public class extraFeatures extends AppCompatActivity {
             this.miles = _miles;
         } else {
             Log.d("Set Miles","The state is Blank and must be filled out.");
-            /* initialize app */
         }
     }
 
@@ -100,10 +102,9 @@ public class extraFeatures extends AppCompatActivity {
 
         if (_Odometer != "") {
             Log.d("Set Odometer","State is saved");
-            this.Odometer = _Odometer;
+            this.CurrentOdometer = _Odometer;
         } else {
             Log.d("Set Odometer","The state is Blank and must be filled out.");
-            /* initialize app */
         }
     }
 
