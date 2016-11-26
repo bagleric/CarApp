@@ -3,7 +3,7 @@
      android:layout_height="match_parent"
      android:layout_width="match_parent"
     >
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_information_"
@@ -14,6 +14,20 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.carapp.Information_">
+
+    <TextView
+        android:text="Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,19 +53,7 @@
         android:id="@+id/Year"
         android:hint="Year" />
 
-    <TextView
-        android:text="Information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:id="@+id/textView3"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-condensed" />
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -84,7 +86,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="44dp"
-        android:id="@+id/Name"
+        android:id="@+id/IName"
         android:hint="Insurance Name" />
 
     <EditText
@@ -92,9 +94,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/Name"
-        android:layout_alignRight="@+id/Name"
-        android:layout_alignEnd="@+id/Name"
+        android:layout_below="@+id/IName"
+        android:layout_alignRight="@+id/IName"
+        android:layout_alignEnd="@+id/IName"
         android:id="@+id/Phone"
         android:hint="Insurance Phone #" />
 
@@ -109,23 +111,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="Submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignBottom="@+id/textView3"
-        android:id="@+id/submitButton"
-        android:layout_centerHorizontal="true"/>
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/EndDate"
         android:hint="End Date"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/effectiveDate"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -134,7 +127,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/effectiveDate"
         android:hint="Effective Date"
         android:layout_below="@+id/Policy"
         android:layout_alignParentLeft="true"
@@ -156,12 +149,20 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/vinNum"
         android:hint="Vin #"
         android:layout_below="@+id/License"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/textView3"
+        android:id="@+id/submitButton"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
 </ScrollView>

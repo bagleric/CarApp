@@ -1,5 +1,7 @@
 package com.example.carapp;
 
+import android.content.SharedPreferences;
+
 /**
  * Created by Eric on 11/2/2016.
  */
@@ -8,20 +10,20 @@ public class Service {
     MainActivity main = new MainActivity();
 
     Service(){
-        name = "";
         milesToNext = 5000;
         timeToNext = 3;
-
     }
-    public String name;
+
+    private int Odemeter = 0;
+    private String currentDate;
+
     private static int milesToNext;
     private static int timeToNext;
-    private int lastMiles = 100000;
+    private int lastMiles = 0;
     private int nextServiceMiles;
-    private int currentMiles = 105000;
-    private String currentDate;
     private String nextServiceDate;
     private Boolean isTime = false;
+
 
     public int getNextServiceMiles(){
         return milesToNext;
@@ -36,13 +38,13 @@ public class Service {
         return nextServiceDate;
     }
     public void setCurrentMiles(){
-        currentMiles = main.getDriverMiles();
+        Odemeter = main.getDriverMiles();
     }
     public void setCurrentDate(){
     }
     private Boolean timeForService(){
         nextServiceMiles = lastMiles + milesToNext;
-        if (nextServiceMiles == currentMiles)
+        if (nextServiceMiles == Odemeter)
             isTime = true;
 return isTime;
     }

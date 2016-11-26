@@ -10,13 +10,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    String make;
+    //String make;
+
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-    SharedPreferences prefs = null;//////////////////////////
-    public static final String PREFS_NAME = "MyPrefsFile";/////////////
     private static final String TAG = MainActivity.class.getSimpleName();//////
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +26,16 @@ public class MainActivity extends AppCompatActivity {
         ///////////////////////
         //application life cycle
         if (savedInstanceState != null) {
-            Log.d(TAG, "onCreate() Restoring previous state");
-            prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-            /* restore state */
+            // Restore value of members from saved state
+              Log.d(TAG, "onCreate() Restoring previous state");
+
         } else {
+            // Probably initialize members with default values for a new instance
             Log.d(TAG, "onCreate() No saved state available");
-            /* initialize app */
-            Intent information = new Intent(MainActivity.this, Information_.class);
-            startActivity(information);
+            Intent add = new Intent(MainActivity.this, Information_.class);
+            Log.d(TAG, "added intent");
+            startActivity(add);
+            Log.d(TAG, "started activity1");
         }
 
     }
@@ -55,14 +57,13 @@ public class MainActivity extends AppCompatActivity {
         buttonOil.setOnClickListener(oilListener);
         Service oil = new Service();
 
-
     }
 
         private View.OnClickListener oilListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.oilButton);
-            button.setText("Oil Changed! Great Job!");
+            //button.setText("Oil Changed! Great Job!");
             Intent calendar = new Intent(MainActivity.this, My_calendar.class);
             startActivity(calendar);
         }
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.carButton);
-            button.setText("You Need insurance!");
+            //button.setText("You Need insurance!");
             Intent information = new Intent(MainActivity.this, Information_.class);
 startActivity(information);
             //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
@@ -83,7 +84,7 @@ startActivity(information);
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.addButton);
-            button.setText("You touched the add button!");
+            //button.setText("You touched the add button!");
             Intent add = new Intent(MainActivity.this, extraFeatures.class);
             startActivity(add);
         }
@@ -93,7 +94,7 @@ startActivity(information);
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.tireButton);
-            button.setText("You touched the tire button!");
+            //button.setText("You touched the tire button!");
             Intent calendar = new Intent(MainActivity.this, My_calendar.class);
             startActivity(calendar);
             Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
