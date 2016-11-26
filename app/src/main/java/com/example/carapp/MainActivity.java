@@ -23,20 +23,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ///////////////////////
-        //application life cycle
-        if (savedInstanceState != null) {
-            // Restore value of members from saved state
-              Log.d(TAG, "onCreate() Restoring previous state");
-
-        } else {
-            // Probably initialize members with default values for a new instance
-            Log.d(TAG, "onCreate() No saved state available");
-            Intent add = new Intent(MainActivity.this, Information_.class);
-            Log.d(TAG, "added intent");
-            startActivity(add);
-            Log.d(TAG, "started activity1");
-        }
+//        ///////////////////////
+//        //application life cycle
+//        if (savedInstanceState != null) {
+//            // Restore value of members from saved state
+//              Log.d(TAG, "onCreate() Restoring previous state");
+//
+//        } else {
+//            // Probably initialize members with default values for a new instance
+//            Log.d(TAG, "onCreate() No saved state available");
+//            Intent add = new Intent(MainActivity.this, Information_.class);
+//            Log.d(TAG, "added intent");
+//            startActivity(add);
+//            Log.d(TAG, "started activity1");
+//        }
 
     }
 

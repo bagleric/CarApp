@@ -20,8 +20,8 @@ public class Information_ extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefsFile";
 
      String make;
-//    public String model;
-//    public String year;
+     String model;
+     String year;
 //
 //    public String Odometer;
 //    public String vinNumber;
@@ -41,11 +41,17 @@ public class Information_ extends AppCompatActivity {
         setContentView(R.layout.activity_information_);
 
         SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        make = preferences.getString("makeOfCar", "");
 
+        make = preferences.getString("makeOfCar", "");
+        year = preferences.getString("yearOfCar", "");
+        model = preferences.getString("modelOfCar", "");
         Log.d(TAG, "set Content View " + make);
         EditText MK = (EditText) findViewById(R.id.Make);
+        EditText YR = (EditText) findViewById(R.id.Year);
+        EditText MDL = (EditText) findViewById(R.id.Model);
         MK.setHint(make);
+        YR.setHint(year);
+        MDL.setHint(model);
 //        if (savedInsuranceState != null) {
 ////            SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 ////            make = preferences.getString(PREFS_NAME, make); // getting string
@@ -69,10 +75,17 @@ public class Information_ extends AppCompatActivity {
         public void onClick(View v) {
 
             EditText MK = (EditText) findViewById(R.id.Make);
+            TextView YR = (TextView) findViewById(R.id.Year);
+            TextView MDL = (TextView) findViewById(R.id.Model);
+
             make = MK.getText().toString();
+            year = YR.getText().toString();
+            model = MDL.getText().toString();
 
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
             editor.putString("makeOfCar", make); //Storing string
+            editor.putString("yearOfCar", year); //Storing string
+            editor.putString("modelOfCar", model); //Storing string
             editor.commit();
 
             Log.d(TAG, "set Content View===== " + make);
