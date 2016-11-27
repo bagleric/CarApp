@@ -22,18 +22,18 @@ public class Information_ extends AppCompatActivity {
      String make;
      String model;
      String year;
-//
-//    public String Odometer;
-//    public String vinNumber;
-//
-//    private String licensePlateNumber;
-//    private String InsuranceName;
-//
-//    public String PhoneNumber;
-//    public String PolicyNumber;
-//
-//    public String policyStartDate;
-//    public String policyEndDate;
+
+     String Odometer;
+     String vinNumber;
+
+     String licensePlateNumber;
+     String InsuranceName;
+
+     String PhoneNumber;
+     String PolicyNumber;
+
+     String policyStartDate;
+     String policyEndDate;
     private static final String TAG = Information_.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInsuranceState) {
@@ -45,13 +45,40 @@ public class Information_ extends AppCompatActivity {
         make = preferences.getString("makeOfCar", "");
         year = preferences.getString("yearOfCar", "");
         model = preferences.getString("modelOfCar", "");
+        Odometer = preferences.getString("CarOdometer", ""); //Storing string
+        vinNumber = preferences.getString("CarVinNumber", ""); //Storing string
+        licensePlateNumber = preferences.getString("CarlicensePlateNumber",""); //Storing string
+        InsuranceName = preferences.getString("CarInsuranceName",""); //Storing string
+        PhoneNumber = preferences.getString("PhoneNumber", ""); //Storing string
+        PolicyNumber = preferences.getString("CarPolicyNumber", ""); //Storing string
+        policyStartDate = preferences.getString("CarpolicyStartDate", ""); //Storing string
+        policyEndDate = preferences.getString("CarpolicyEndDate", ""); //Storing string
+
         Log.d(TAG, "set Content View " + make);
         EditText MK = (EditText) findViewById(R.id.Make);
         EditText YR = (EditText) findViewById(R.id.Year);
         EditText MDL = (EditText) findViewById(R.id.Model);
+        EditText ODOM = (EditText) findViewById(R.id.Odometer);
+        EditText LPN = (EditText) findViewById(R.id.License);
+        EditText INM = (EditText) findViewById(R.id.IName);
+        EditText PHN = (EditText) findViewById(R.id.Phone);
+        EditText END = (EditText) findViewById(R.id.EndDate);
+        EditText EFD = (EditText) findViewById(R.id.effectiveDate);
+        EditText P = (EditText) findViewById(R.id.Policy);
+        EditText VN = (EditText) findViewById(R.id.vinNum);
+
         MK.setHint(make);
         YR.setHint(year);
         MDL.setHint(model);
+        ODOM.setHint(Odometer);
+        LPN.setHint(licensePlateNumber);
+        INM.setHint(InsuranceName);
+        PHN.setHint(PhoneNumber);
+        END.setHint(policyEndDate);
+        EFD.setHint(policyStartDate);
+        P.setHint(PolicyNumber);
+        VN.setHint(vinNumber);
+
 //        if (savedInsuranceState != null) {
 ////            SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 ////            make = preferences.getString(PREFS_NAME, make); // getting string
@@ -75,20 +102,56 @@ public class Information_ extends AppCompatActivity {
         public void onClick(View v) {
 
             EditText MK = (EditText) findViewById(R.id.Make);
-            TextView YR = (TextView) findViewById(R.id.Year);
-            TextView MDL = (TextView) findViewById(R.id.Model);
+            EditText YR = (EditText) findViewById(R.id.Year);
+            EditText MDL = (EditText) findViewById(R.id.Model);
+            EditText ODOM = (EditText) findViewById(R.id.Odometer);
+            EditText LPN = (EditText) findViewById(R.id.License);
+            EditText INM = (EditText) findViewById(R.id.IName);
+            EditText PHN = (EditText) findViewById(R.id.Phone);
+            EditText END = (EditText) findViewById(R.id.EndDate);
+            EditText EFD = (EditText) findViewById(R.id.effectiveDate);
+            EditText P = (EditText) findViewById(R.id.Policy);
+            EditText VN = (EditText) findViewById(R.id.vinNum);
+            Log.d(TAG, "MK.getHint().toString()===== " + MK.getHint().toString());
+            Log.d(TAG, "MK.getText().toString()===== " + MK.getText().toString());
 
-            make = MK.getText().toString();
-            year = YR.getText().toString();
-            model = MDL.getText().toString();
+            if(!MK.getText().toString().equals(""))
+                    make = MK.getText().toString();
+            if(!YR.getText().toString().equals(""))
+                year = YR.getText().toString();
+            if(!MDL.getText().toString().equals(""))
+                model = MDL.getText().toString();
+            if(!ODOM.getText().toString().equals(""))
+                Odometer = ODOM.getText().toString();
+            if(!VN.getText().toString().equals(""))
+                vinNumber = VN.getText().toString();
+            if(!LPN.getText().toString().equals(""))
+                licensePlateNumber = LPN.getText().toString();
+            if(!INM.getText().toString().equals(""))
+                InsuranceName = INM.getText().toString();
+            if(!PHN.getText().toString().equals(""))
+                PhoneNumber = PHN.getText().toString();
+            if(!P.getText().toString().equals(""))
+                PolicyNumber = P.getText().toString();
+            if(!EFD.getText().toString().equals(""))
+                policyStartDate = EFD.getText().toString();
+            if(!END.getText().toString().equals(""))
+                policyEndDate = END.getText().toString();
 
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
             editor.putString("makeOfCar", make); //Storing string
             editor.putString("yearOfCar", year); //Storing string
             editor.putString("modelOfCar", model); //Storing string
+            editor.putString("CarOdometer", Odometer); //Storing string
+            editor.putString("CarVinNumber", vinNumber); //Storing string
+            editor.putString("CarlicensePlateNumber",licensePlateNumber); //Storing string
+            editor.putString("CarInsuranceName",InsuranceName); //Storing string
+            editor.putString("PhoneNumber", PhoneNumber); //Storing string
+            editor.putString("CarPolicyNumber", PolicyNumber); //Storing string
+            editor.putString("CarpolicyStartDate", policyStartDate); //Storing string
+            editor.putString("CarpolicyEndDate", policyEndDate); //Storing string
             editor.commit();
 
-            Log.d(TAG, "set Content View===== " + make);
             finish();
          }
     };
