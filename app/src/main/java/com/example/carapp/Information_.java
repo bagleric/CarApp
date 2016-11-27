@@ -112,7 +112,9 @@ public class Information_ extends AppCompatActivity {
             EditText EFD = (EditText) findViewById(R.id.effectiveDate);
             EditText P = (EditText) findViewById(R.id.Policy);
             EditText VN = (EditText) findViewById(R.id.vinNum);
+
             Log.d(TAG, "MK.getHint().toString()===== " + MK.getHint().toString());
+
             Log.d(TAG, "MK.getText().toString()===== " + MK.getText().toString());
 
             if(!MK.getText().toString().equals(""))
@@ -159,74 +161,74 @@ public class Information_ extends AppCompatActivity {
         public String getMake() {
         return make;
     }
-//
-//        public String getModel() {
-//        return model;
-//    }
 
-//        public String getYear() {
-//        return year;
-//    }
-//
-//        public String getOdometer() {
-//        return Odometer;
-//    }
-//
-//        public String getNumInsurance() {
-//        return licensePlateNumber;
-//    }
-//
-//        public String GetVinNumber() {
-//        return vinNumber;
-//    }
-//
-//        public String getInsuranceName() {
-//        return InsuranceName;
-//    }
-//
-//        public String getInsurancePhoneNumber() {
-//        return PhoneNumber;
-//    }
-//
-//        public String getPolicyNumber() {
-//        return PolicyNumber;
-//    }
-//
-//        public String GetPolicyStartDate() {return policyStartDate;}
-//
-//        public String GetPolicyEndDate() {return policyEndDate;}
+        public String getModel() {
+        return model;
+    }
+
+        public String getYear() {
+        return year;
+    }
+
+        public String getOdometer() {
+        return Odometer;
+    }
+
+        public String getNumInsurance() {
+        return licensePlateNumber;
+    }
+
+        public String GetVinNumber() {
+        return vinNumber;
+    }
+
+        public String getInsuranceName() {
+        return InsuranceName;
+    }
+
+        public String getInsurancePhoneNumber() {
+        return PhoneNumber;
+    }
+
+        public String getPolicyNumber() {
+        return PolicyNumber;
+    }
+
+        public String GetPolicyStartDate() {return policyStartDate;}
+
+        public String GetPolicyEndDate() {return policyEndDate;}
     /////////////////////////////////////////////////////////////////////////////
     public String setMake(String mka) {
         Log.d(TAG, "=====setMake===" + mka);
         return this.make = mka; }
 
-//    public String setModel(String mdl) { return this.model = mdl; }
+    public String setModel(String mdl) { return this.model = mdl; }
 
-//    public String setYear(String yr) {
-//        return this.year = yr;
-//    }
-//
-//    public String setOdometer(String od) {
-//        return this.Odometer = od;
-//    }
-//
-//    public String setNumInsurance(String LPN) { return this.licensePlateNumber = LPN; }
-//
-//    public String setVinNumber(String VN) {
-//        return this.vinNumber = VN;
-//    }
-//
-//    public String setInsuranceName(String INM) { return this.InsuranceName = INM; }
-//
-//    public String setInsurancePhoneNumber(String PN) {
-//        return this.PhoneNumber = PN;
-//    }
-//
-//    public String setPolicyNumber(String PLCYNMB) { return this.PolicyNumber = PLCYNMB; }
-//
-//    public String setPolicyStartDate(String PSD) {return this.policyStartDate = PSD;}
-//
-//    public String setPolicyEndDate(String PED) {return this.policyEndDate = PED;}
+    public String setYear(String yr) {
+        return this.year = yr;
+    }
+
+    public String setOdometer(String od) {
+        return this.Odometer = od;
+    }
+
+    public String setNumInsurance(String LPN) { return this.licensePlateNumber = LPN; }
+
+    public String setVinNumber(String VN) {
+        return this.vinNumber = VN;
+    }
+
+    public String setInsuranceName(String INM) { return this.InsuranceName = INM; }
+
+    public String setInsurancePhoneNumber(String PN) {
+        return this.PhoneNumber = PN;
+    }
+
+    public String setPolicyNumber(String PLCYNMB) { return this.PolicyNumber = PLCYNMB; }
+
+    public String setPolicyStartDate(String PSD) {return this.policyStartDate = PSD;}
+
+    public String setPolicyEndDate(String PED) {return this.policyEndDate = PED;}
 
 }
 
