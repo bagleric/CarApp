@@ -86,7 +86,7 @@
         android:layout_alignRight="@+id/IName"
         android:layout_alignEnd="@+id/IName"
         android:id="@+id/Phone"
-        android:hint="Insurance Phone #" />
+        android:hint="Phone #" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editText4"
-        android:hint="Expiration"
+        android:hint="End Date"
         android:layout_below="@+id/editText3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -182,7 +182,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/IName"
-        android:hint="Insurance Name"
+        android:hint="Name"
         android:layout_below="@+id/editText8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -216,7 +216,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Road Side Assistance Information"
+        android:text="Roadside Assistance Info"
         android:ems="10"
         android:id="@+id/editText9"
         android:layout_below="@+id/EndDate"
