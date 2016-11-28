@@ -149,7 +149,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editText5"
-        android:hint="End Date"
+        android:hint="Policy #"
         android:layout_below="@+id/editText4"
         android:layout_alignLeft="@+id/editText4"
         android:layout_alignStart="@+id/editText4" />
@@ -171,31 +171,10 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editText4"
-        android:hint="Effective Date"
+        android:hint="Expiration"
         android:layout_below="@+id/editText3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText7"
-        android:hint="Policy #"
-        android:layout_below="@+id/editText5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="Submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/submitButton"
-        android:layout_below="@+id/editText5"
-        android:layout_alignRight="@+id/editText7"
-        android:layout_alignEnd="@+id/editText7"
-        android:layout_marginTop="11dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -245,6 +224,14 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="26dp"
         android:textStyle="normal|bold" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitButton"
+        android:layout_below="@+id/editText5"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 </ScrollView>
