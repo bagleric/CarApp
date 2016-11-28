@@ -202,10 +202,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_marginTop="24dp"
         android:id="@+id/IName"
         android:hint="Insurance Name"
-        android:layout_below="@+id/vinNum"
+        android:layout_below="@+id/editText8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -213,13 +212,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
+        android:text="Insurance Information"
+        android:ems="10"
+        android:id="@+id/editText8"
+        android:layout_below="@+id/vinNum"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editText2"
-        android:hint="Roadside Assistance"
+        android:hint="Company Name"
+        android:layout_below="@+id/editText9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Road Side Assistance Information"
+        android:ems="10"
+        android:id="@+id/editText9"
         android:layout_below="@+id/EndDate"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp" />
+        android:layout_marginTop="26dp"
+        android:textStyle="normal|bold" />
 
 </RelativeLayout>
 </ScrollView>
