@@ -1,6 +1,9 @@
 package com.example.carapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +25,8 @@ public class extraFeatures extends AppCompatActivity {
     String miles;
     String CurrentOdometer;
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
+   // public static final String PREFS_NAME = "MyPrefsFile";
+   private static final String TAG = Information_.class.getSimpleName();
 
     //This needs to store the information onclick, then create an object
     //store the object in a dates array, then kick the user back to the main activity.
@@ -29,6 +34,29 @@ public class extraFeatures extends AppCompatActivity {
     protected void onCreate(Bundle savedExtraFeaturesState) {
         super.onCreate(savedExtraFeaturesState);
         setContentView(R.layout.extra_features);
+//        SharedPreferences preferences = getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Information_ info = new Information_();
+        CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
+        nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
+        miles = preferences.getString("Miles", ""); //Storing string
+        Log.d(TAG, "Odometer=======================" + CurrentOdometer);
+       // Log.d(TAG, "Odometer from info=======================" + info.GetOdometer());
+        EditText _nameSpecialR = (EditText) findViewById(R.id.name);
+        EditText setOd = (EditText) findViewById(R.id.Odometer);
+        EditText setM = (EditText) findViewById(R.id.milesTill);
+
+
+
+
+        //CurrentOdometer = info.GetOdometer();
+        if(!nameSpecialRequest.equals(""))
+            _nameSpecialR.setHint(nameSpecialRequest);
+        if(!miles.equals(""))
+            setM.setHint(miles);
+        if(!CurrentOdometer.equals(""))
+            setOd.setHint(CurrentOdometer);
+
         Button buttonTire = (Button) findViewById(R.id.button);
         buttonTire.setOnClickListener(submitListener);
     }
@@ -43,18 +71,26 @@ public class extraFeatures extends AppCompatActivity {
     private View.OnClickListener submitListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)findViewById(R.id.button);
             //we need this just commented out for testing
-
            EditText _nameSpecialR = (EditText) findViewById(R.id.name);
-           setNameSR(_nameSpecialR.getText().toString());
-
            EditText setOd = (EditText) findViewById(R.id.Odometer);
-           setOdometer(setOd.getText().toString());
-
            EditText setM = (EditText) findViewById(R.id.milesTill);
-           setMiles(setM.getText().toString());
+            if(!_nameSpecialR.getText().toString().equals(""))
+                nameSpecialRequest = _nameSpecialR.getText().toString();
+            if(!setM.getText().toString().equals(""))
+                miles = setM.getText().toString();
+            if(!setOd.getText().toString().equals(""))
+                CurrentOdometer = setOd.getText().toString();
 
+            SharedPreferences.Editor editor = getSharedPreferences("PREFS_NAME", MODE_PRIVATE).edit();
+            editor.putString("SpecialService", nameSpecialRequest); //Storing string
+            editor.putString("Odometer", CurrentOdometer); //Storing string
+            editor.putString("Miles", miles); //Storing string
+            editor.commit();
+
+            finish();
+
+            //////////////////////////////////////////////////////////////
            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
            int num = Integer.valueOf(MnthsTill.getText().toString());
            MonthsTill(num);

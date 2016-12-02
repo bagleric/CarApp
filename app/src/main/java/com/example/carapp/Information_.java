@@ -19,7 +19,7 @@ public class Information_ extends AppCompatActivity {
      String year;
 
      String Odometer;
-    String licensePlateNumber;
+     String licensePlateNumber;
 
      String vinNumber;
      String InsuranceName;
@@ -110,20 +110,7 @@ public class Information_ extends AppCompatActivity {
         if(!RoadPolicyNum.equals(""))
             PN.setHint(RoadPolicyNum);
 
-//        if (savedInsuranceState != null) {
-////            SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-////            make = preferences.getString(PREFS_NAME, make); // getting string
-////            Log.d(TAG, "=====" + make);
-////            EditText MK = (EditText) findViewById(R.id.Make);
-////            StringBuilder sb = new StringBuilder();
-////            sb.append(MK);
-////            String strI = sb.toString();
-////            MK.setHint(strI);
-//
-//        } else {
-//            Log.d(TAG, "onCreate() No saved state available");
-//        }
-//
+
         Button buttonTire = (Button) findViewById(R.id.submitButton);
         buttonTire.setOnClickListener(submitListener);
     }
@@ -175,13 +162,13 @@ public class Information_ extends AppCompatActivity {
             if(!END.getText().toString().equals(""))
                 policyEndDate = END.getText().toString();
             if(!CN.getText().toString().equals(""))
-                CompanyName = END.getText().toString();
+                CompanyName = CN.getText().toString();
             if(!RSP.getText().toString().equals(""))
-                RoadSidePhone = PHN.getText().toString();
+                RoadSidePhone = RSP.getText().toString();
             if(!RED.getText().toString().equals(""))
-                RoadEndDate = EFD.getText().toString();
+                RoadEndDate = RED.getText().toString();
             if(!PN.getText().toString().equals(""))
-                RoadPolicyNum = P.getText().toString();
+                RoadPolicyNum = PN.getText().toString();
 
 
 
@@ -350,3 +337,18 @@ public class Information_ extends AppCompatActivity {
 //        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
 //        editor.putString(PREFS_NAME, make); //Storing string
 //        editor.commit();
+///////////////////////////////
+//        if (savedInsuranceState != null) {
+////            SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+////            make = preferences.getString(PREFS_NAME, make); // getting string
+////            Log.d(TAG, "=====" + make);
+////            EditText MK = (EditText) findViewById(R.id.Make);
+////            StringBuilder sb = new StringBuilder();
+////            sb.append(MK);
+////            String strI = sb.toString();
+////            MK.setHint(strI);
+//
+//        } else {
+//            Log.d(TAG, "onCreate() No saved state available");
+//        }
+//

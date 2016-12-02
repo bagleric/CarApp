@@ -1,5 +1,6 @@
 package com.example.carapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //String make;
+    public static final String PREFS_NAME = "MyPrefsFile";
 
     private int oilMiles;
     private int tireMiles;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
 //        ///////////////////////
 //        //application life cycle
