@@ -29,6 +29,38 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed" />
 
+    <!--android:inputType="textPersonName"-->
+    <!--android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"-->
+    <TextView
+        android:text="Insurance Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/InsuranceInformation"
+        android:layout_below="@+id/vinNum"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="19sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-condensed" />
+
+    <TextView
+        android:text="Roadside Assistance Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/RoadAssist"
+        android:layout_below="@+id/EndDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="19sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-condensed"/>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +85,16 @@
         android:id="@+id/Year"
         android:hint="Year" />
 
-
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/Model"
+        android:hint="Model"
+        android:layout_below="@+id/Make"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -82,22 +123,22 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/IName"
-        android:layout_alignRight="@+id/IName"
-        android:layout_alignEnd="@+id/IName"
-        android:id="@+id/Phone"
-        android:hint="Phone #" />
+        android:id="@+id/IName"
+        android:hint="Name"
+        android:layout_below="@+id/InsuranceInformation"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/Model"
-        android:hint="Model"
-        android:layout_below="@+id/Make"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/IName"
+        android:layout_alignRight="@+id/IName"
+        android:layout_alignEnd="@+id/IName"
+        android:id="@+id/Phone"
+        android:hint="Phone #" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -148,20 +189,20 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/PolicyNum"
         android:hint="Policy #"
-        android:layout_below="@+id/editText4"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4" />
+        android:layout_below="@+id/RoadEndDate"
+        android:layout_alignLeft="@+id/RoadEndDate"
+        android:layout_alignStart="@+id/RoadEndDate" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/RoadSidePhone"
         android:hint="Phone #"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/CompanyName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -170,9 +211,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/RoadEndDate"
         android:hint="End Date"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/RoadSidePhone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -181,56 +222,18 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/IName"
-        android:hint="Name"
-        android:layout_below="@+id/editText8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Insurance Information"
-        android:ems="10"
-        android:id="@+id/editText8"
-        android:layout_below="@+id/vinNum"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
-        android:textStyle="normal|bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/CompanyName"
         android:hint="Company Name"
-        android:layout_below="@+id/editText9"
+        android:layout_below="@+id/RoadAssist"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Roadside Assistance Info"
-        android:ems="10"
-        android:id="@+id/editText9"
-        android:layout_below="@+id/EndDate"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:textStyle="normal|bold" />
 
     <Button
         android:text="Submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/submitButton"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/PolicyNum"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
