@@ -46,7 +46,7 @@ public class Information_ extends AppCompatActivity {
             make = preferences.getString("makeOfCar", "");
             model = preferences.getString("modelOfCar", "");
             year = preferences.getString("yearOfCar", "");
-            Odometer = preferences.getString("CarOdometer", ""); //Storing string
+            Odometer = preferences.getString("CarOdometer", GetOdometer()); //Storing string
             licensePlateNumber = preferences.getString("CarlicensePlateNumber", ""); //Storing string
             vinNumber = preferences.getString("CarVinNumber", ""); //Storing string
             InsuranceName = preferences.getString("CarInsuranceName", ""); //Storing string
@@ -77,7 +77,7 @@ public class Information_ extends AppCompatActivity {
         EditText RSP = (EditText) findViewById(R.id.RoadSidePhone);
         EditText RED = (EditText) findViewById(R.id.RoadEndDate);
         EditText PN = (EditText) findViewById(R.id.PolicyNum);
-        Log.d(TAG, "MK.getHint().toString()===== " + make);
+//        Log.d(TAG, "ODOM.getHint().toString()===== " + Odometer);
 
         if(!make.equals(""))
             MK.setHint(make);
@@ -85,7 +85,7 @@ public class Information_ extends AppCompatActivity {
             MDL.setHint(model);
         if(!year.equals(""))
             YR.setHint(year);
-        if(!Odometer.equals(""))
+        if(Odometer != null)
             ODOM.setHint(Odometer);
         if(!licensePlateNumber.equals(""))
             LPN.setHint(licensePlateNumber);
@@ -135,9 +135,9 @@ public class Information_ extends AppCompatActivity {
             EditText RED = (EditText) findViewById(R.id.RoadEndDate);
             EditText PN = (EditText) findViewById(R.id.PolicyNum);
 
-            Log.d(TAG, "MK.getHint().toString()===== " + MK.getHint().toString());
+            Log.d(TAG, "ODOM.getHint().toString()===== " + ODOM.getHint().toString());
 
-            Log.d(TAG, "MK.getText().toString()===== " + MK.getText().toString());
+            Log.d(TAG, "getOdometer===== " + GetOdometer());
 
             if(!MK.getText().toString().equals(""))
                 make = MK.getText().toString();
@@ -177,7 +177,7 @@ public class Information_ extends AppCompatActivity {
             editor.putString("makeOfCar", make); //Storing string
             editor.putString("yearOfCar", year); //Storing string
             editor.putString("modelOfCar", model); //Storing string
-            editor.putString("CarOdometer", Odometer); //Storing string
+            editor.putString("CarOdometer", GetOdometer()); //Storing string
             editor.putString("CarVinNumber", vinNumber); //Storing string
             editor.putString("CarlicensePlateNumber",licensePlateNumber); //Storing string
             editor.putString("CarInsuranceName",InsuranceName); //Storing string

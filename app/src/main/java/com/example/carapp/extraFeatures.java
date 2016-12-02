@@ -35,13 +35,14 @@ public class extraFeatures extends AppCompatActivity {
         super.onCreate(savedExtraFeaturesState);
         setContentView(R.layout.extra_features);
 //        SharedPreferences preferences = getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences preferences = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+
         Information_ info = new Information_();
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
         Log.d(TAG, "Odometer=======================" + CurrentOdometer);
-       // Log.d(TAG, "Odometer from info=======================" + info.GetOdometer());
+        Log.d(TAG, "Odometer from info=======================" + info.GetOdometer());
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
         EditText setOd = (EditText) findViewById(R.id.Odometer);
         EditText setM = (EditText) findViewById(R.id.milesTill);
@@ -54,7 +55,7 @@ public class extraFeatures extends AppCompatActivity {
             _nameSpecialR.setHint(nameSpecialRequest);
         if(!miles.equals(""))
             setM.setHint(miles);
-        if(!CurrentOdometer.equals(""))
+        if(CurrentOdometer != null)
             setOd.setHint(CurrentOdometer);
 
         Button buttonTire = (Button) findViewById(R.id.button);
