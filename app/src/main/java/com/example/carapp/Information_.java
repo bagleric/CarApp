@@ -171,8 +171,6 @@ public class Information_ extends AppCompatActivity {
                 RoadPolicyNum = PN.getText().toString();
 
 
-
-
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
             editor.putString("makeOfCar", make); //Storing string
             editor.putString("yearOfCar", year); //Storing string

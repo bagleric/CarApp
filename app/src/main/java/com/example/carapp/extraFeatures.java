@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,14 +14,18 @@ import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Mike on 11/11/2016.
  */
 
 public class extraFeatures extends AppCompatActivity {
+    private Set<String> requests = new HashSet<String>();
     String nameSpecialRequest;
     String miles;
     String CurrentOdometer;
@@ -41,8 +46,10 @@ public class extraFeatures extends AppCompatActivity {
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
-        Log.d(TAG, "Odometer=======================" + CurrentOdometer);
-        Log.d(TAG, "Odometer from info=======================" + info.GetOdometer());
+        requests = preferences.getStringSet("newService", requests);
+        Log.d(TAG, "Requests=======================" + requests);
+        //for(int = 0;  )
+        //Toast.makeText(extraFeatures.this, (requests), Toast.LENGTH_LONG).show();
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
         EditText setOd = (EditText) findViewById(R.id.Odometer);
         EditText setM = (EditText) findViewById(R.id.milesTill);
@@ -82,19 +89,24 @@ public class extraFeatures extends AppCompatActivity {
                 miles = setM.getText().toString();
             if(!setOd.getText().toString().equals(""))
                 CurrentOdometer = setOd.getText().toString();
+            Information_ info = new Information_();
+            SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+  //          editor.putString("SpecialService", nameSpecialRequest); //Storing string
+            info.setOdometer(CurrentOdometer);
+            editor.putString("CarOdometer", info.GetOdometer()); //Storing string
+    //        editor.putString("Miles", miles); //Storing string
+            node n = new node(nameSpecialRequest, miles, null);
+            String temp = n.toString();
+            requests.add(temp);
+            editor.putStringSet("newService", requests);
 
-            SharedPreferences.Editor editor = getSharedPreferences("PREFS_NAME", MODE_PRIVATE).edit();
-            editor.putString("SpecialService", nameSpecialRequest); //Storing string
-            editor.putString("Odometer", CurrentOdometer); //Storing string
-            editor.putString("Miles", miles); //Storing string
             editor.commit();
-
             finish();
 
             //////////////////////////////////////////////////////////////
-           EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
-           int num = Integer.valueOf(MnthsTill.getText().toString());
-           MonthsTill(num);
+           //EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
+          // int num = Integer.valueOf(MnthsTill.getText().toString());
+           //MonthsTill(num);
 
 
         }
