@@ -102,9 +102,10 @@ public class extraFeatures extends AppCompatActivity {
 
             editor.commit();
             //////////////////////////////////////////////////////////////
-            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
+            /*EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
             int num = Integer.valueOf(MnthsTill.getText().toString());
             DaysTill(num);
+            */
 /////////////////////////////////
             finish();
 
