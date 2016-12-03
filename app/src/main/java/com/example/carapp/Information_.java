@@ -44,9 +44,7 @@ public class Information_ extends AppCompatActivity{
     List<EditText> editTextArray = new ArrayList<EditText>();
     List<String> StrArray = new ArrayList<String>();
     List<Object> StringArray = new ArrayList<Object>(StrArray);
-//    String[] StringArray = new String[]{make, model, year, Odometer, licensePlateNumber, vinNumber, InsuranceName,
-//            PhoneNumber, PolicyNumber, policyStartDate, policyEndDate, CompanyName,
-//            RoadSidePhone, RoadEndDate, RoadPolicyNum};
+
     private static final String TAG = Information_.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInsuranceState) {

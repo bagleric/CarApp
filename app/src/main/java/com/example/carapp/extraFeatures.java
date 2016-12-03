@@ -95,7 +95,7 @@ public class extraFeatures extends AppCompatActivity {
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
     //        editor.putString("Miles", miles); //Storing string
-            node n = new node(nameSpecialRequest, miles, null);
+            node n = new node(nameSpecialRequest, new SimpleDateFormat("MM/dd/yy"), null);
             String temp = n.toString();
             requests.add(temp);
             editor.putStringSet("newService", requests);

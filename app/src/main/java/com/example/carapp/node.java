@@ -12,39 +12,37 @@ import java.text.SimpleDateFormat;
 public class node {
 
     private String nameSpecialRequest;
-    private String milesTill;
-    // DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
+
+    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
     Node next;
 
     public node () {
         nameSpecialRequest = "";
-        milesTill = "";
+        dateFormat = new SimpleDateFormat("MM/dd/yy");
         next = null;
     }
 
-    public node (String name, String mi, Node next) {
+    public node (String name, SimpleDateFormat date, Node next) {
         this.nameSpecialRequest = name;
-        this.milesTill = mi;
+        this.dateFormat = date;
         this.next = next;
     }
 
-    public String getMilesTill(){
-        return milesTill;
+    public DateFormat getDateFormat(){
+        return dateFormat;
     }
 
     public String getNameSpecialRequest(){
         return nameSpecialRequest;
     }
 
-    public void setMilesTill(){
-        this.milesTill = milesTill;
-    }
+    public void setDateFormat(){ this.dateFormat = dateFormat;}
 
     public void setNameSpecialRequest(){
         this.nameSpecialRequest = nameSpecialRequest;
     }
 
     public String toString(){
-        return milesTill + "" + nameSpecialRequest;
+        return nameSpecialRequest;
     }
 }
