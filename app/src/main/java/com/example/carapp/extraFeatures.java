@@ -1,20 +1,22 @@
 package com.example.carapp;
 
+import android.annotation.TargetApi;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -32,16 +34,24 @@ public class extraFeatures extends AppCompatActivity {
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
    // public static final String PREFS_NAME = "MyPrefsFile";
    private static final String TAG = extraFeatures.class.getSimpleName();
+    Button btn;
+    int year_x, month_x, day_x;
+    static final int DIALOG_ID = 0;
 
     //This needs to store the information onclick, then create an object
     //store the object in a dates array, then kick the user back to the main activity.
+    @TargetApi(Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedExtraFeaturesState) {
         super.onCreate(savedExtraFeaturesState);
         setContentView(R.layout.extra_features);
 //        SharedPreferences preferences = getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
         SharedPreferences preferences = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
-
+        final android.icu.util.Calendar cal = android.icu.util.Calendar.getInstance();
+        year_x = cal.get(Calendar.YEAR);
+        month_x = cal.get(Calendar.MONTH);
+        day_x = cal.get(Calendar.DAY_OF_MONTH);
+        ShowDialogOnButtonClick();
         Information_ info = new Information_();
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
@@ -102,9 +112,9 @@ public class extraFeatures extends AppCompatActivity {
 
             editor.commit();
             //////////////////////////////////////////////////////////////
-            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
-            int num = Integer.valueOf(MnthsTill.getText().toString());
-            DaysTill(num);
+//            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
+//            int num = Integer.valueOf(MnthsTill.getText().toString());
+//            DaysTill(num);
 /////////////////////////////////
             finish();
 
@@ -178,6 +188,35 @@ public class extraFeatures extends AppCompatActivity {
 
 
     }
+    public void ShowDialogOnButtonClick() {
+        btn = (Button) findViewById(R.id.button2);
+        btn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog(DIALOG_ID);
+                    }
+                }
+        );
+    }
 
+
+    @Override
+    protected Dialog onCreateDialog(int id){
+        if (id == DIALOG_ID)
+            return new DatePickerDialog(this, dPickerListener, year_x, month_x, day_x);
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener dPickerListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            year_x = year;
+            month_x =  month + 1;
+            day_x = dayOfMonth;
+            Toast.makeText(extraFeatures.this, year_x + "/" + month_x +"/" + day_x, Toast.LENGTH_LONG).show();
+
+        }
+    };
 
 }

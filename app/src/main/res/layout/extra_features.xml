@@ -22,15 +22,17 @@
         android:fontFamily="sans-serif-condensed" />
 
 
-    <EditText
+    <Button
+        android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text=""
-        android:ems="10"
-        android:id="@+id/monthsTill"
-        android:hint="Months Till Next Service"
-        android:layout_marginTop="19dp" />
+        android:id="@+id/button2" />
+
+    <TextView
+        android:text="Next Service Date: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />
 
     <EditText
         android:layout_width="match_parent"
