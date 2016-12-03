@@ -31,7 +31,7 @@ public class extraFeatures extends AppCompatActivity {
     String CurrentOdometer;
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
    // public static final String PREFS_NAME = "MyPrefsFile";
-   private static final String TAG = Information_.class.getSimpleName();
+   private static final String TAG = extraFeatures.class.getSimpleName();
 
     //This needs to store the information onclick, then create an object
     //store the object in a dates array, then kick the user back to the main activity.
@@ -101,12 +101,13 @@ public class extraFeatures extends AppCompatActivity {
             editor.putStringSet("newService", requests);
 
             editor.commit();
+            //////////////////////////////////////////////////////////////
+            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
+            int num = Integer.valueOf(MnthsTill.getText().toString());
+            DaysTill(num);
+/////////////////////////////////
             finish();
 
-            //////////////////////////////////////////////////////////////
-           //EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
-          // int num = Integer.valueOf(MnthsTill.getText().toString());
-           //MonthsTill(num);
 
 
         }
@@ -159,20 +160,22 @@ public class extraFeatures extends AppCompatActivity {
 
  //   public void setDate(DateFormat dateFormat);
 
-    public void MonthsTill(int _userDate) {
+    public void DaysTill(int _userDate) {
 
-        if (_userDate < 1) {
+        if (_userDate > 1) {
             Log.d("Set Odometer","State is saved");
             String serviceDate;
             Calendar currentDate = Calendar.getInstance();
             currentDate.setTime(new Date()); // Now use today date.
-            currentDate.add(Calendar.MONTH, _userDate); // Adds 15 months
+            currentDate.add(Calendar.DAY_OF_MONTH, _userDate); // Adds 15 days
             serviceDate = dateFormat.format(currentDate.getTime());
             Toast.makeText(extraFeatures.this, serviceDate, Toast.LENGTH_LONG).show();
+            Log.d(TAG, "new date=======================" + serviceDate);
         } else {
             Log.d("Set Odometer","The state is Blank and must be filled out.");
             /* initialize app */
         }
+
 
     }
 

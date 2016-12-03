@@ -25,21 +25,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        Information_ info = new Information_();
+        Button button = (Button)findViewById(R.id.oilButton);
+        String oilButtonText = preferences.getString("CarOdometer", info.GetOdometer());
+        if(!oilButtonText.equals(""))
+        button.setText(oilButtonText);
+        Log.d(TAG, "oilButton=======================" + oilButtonText);
 
-//        ///////////////////////
-//        //application life cycle
-//        if (savedInstanceState != null) {
-//            // Restore value of members from saved state
-//              Log.d(TAG, "onCreate() Restoring previous state");
-//
-//        } else {
-//            // Probably initialize members with default values for a new instance
-//            Log.d(TAG, "onCreate() No saved state available");
-//            Intent add = new Intent(MainActivity.this, Information_.class);
-//            Log.d(TAG, "added intent");
-//            startActivity(add);
-//            Log.d(TAG, "started activity1");
-//        }
 
     }
 
@@ -66,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.oilButton);
-            //button.setText("Oil Changed! Great Job!");
+            button.setText("Oil Changed! Great Job!");
             Intent calendar = new Intent(MainActivity.this, My_calendar.class);
             startActivity(calendar);
         }
@@ -100,7 +92,7 @@ startActivity(information);
             //button.setText("You touched the tire button!");
             Intent calendar = new Intent(MainActivity.this, My_calendar.class);
             startActivity(calendar);
-            Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
+            //Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
         }
     };
 
@@ -132,3 +124,17 @@ startActivity(information);
 }
 
 
+//        ///////////////////////
+//        //application life cycle
+//        if (savedInstanceState != null) {
+//            // Restore value of members from saved state
+//              Log.d(TAG, "onCreate() Restoring previous state");
+//
+//        } else {
+//            // Probably initialize members with default values for a new instance
+//            Log.d(TAG, "onCreate() No saved state available");
+//            Intent add = new Intent(MainActivity.this, Information_.class);
+//            Log.d(TAG, "added intent");
+//            startActivity(add);
+//            Log.d(TAG, "started activity1");
+//        }

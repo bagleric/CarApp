@@ -1,5 +1,6 @@
 package com.example.carapp;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.util.Log;
 
@@ -9,8 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-public class Information_ extends AppCompatActivity {
+import static java.lang.String.valueOf;
+
+
+public class Information_ extends AppCompatActivity{
 
     public static final String PREFS_NAME = "MyPrefsFile";
 
@@ -34,7 +41,12 @@ public class Information_ extends AppCompatActivity {
     String RoadSidePhone;
     String RoadEndDate;
     String RoadPolicyNum;
-
+    List<EditText> editTextArray = new ArrayList<EditText>();
+    List<String> StrArray = new ArrayList<String>();
+    List<Object> StringArray = new ArrayList<Object>(StrArray);
+//    String[] StringArray = new String[]{make, model, year, Odometer, licensePlateNumber, vinNumber, InsuranceName,
+//            PhoneNumber, PolicyNumber, policyStartDate, policyEndDate, CompanyName,
+//            RoadSidePhone, RoadEndDate, RoadPolicyNum};
     private static final String TAG = Information_.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInsuranceState) {
@@ -54,7 +66,6 @@ public class Information_ extends AppCompatActivity {
             PolicyNumber = preferences.getString("CarPolicyNumber", ""); //Storing string
             policyStartDate = preferences.getString("CarpolicyStartDate", ""); //Storing string
             policyEndDate = preferences.getString("CarpolicyEndDate", ""); //Storing string
-
         CompanyName = preferences.getString("RoadSideCompanyName", "");
         RoadSidePhone = preferences.getString("RoadSidePhoneNum", "");
         RoadEndDate = preferences.getString("RoadSideEndDate", "");
@@ -62,54 +73,60 @@ public class Information_ extends AppCompatActivity {
 
         Log.d(TAG, "set Content View " + make);
 
-        EditText MK = (EditText) findViewById(R.id.Make);
+       EditText MK = (EditText) findViewById(R.id.Make);
+        editTextArray.add(MK);
         EditText MDL = (EditText) findViewById(R.id.Model);
+        editTextArray.add(MDL);
         EditText YR = (EditText) findViewById(R.id.Year);
+        editTextArray.add(YR);
         EditText ODOM = (EditText) findViewById(R.id.Odometer);
+        editTextArray.add(ODOM);
         EditText LPN = (EditText) findViewById(R.id.License);
+        editTextArray.add(LPN);
         EditText VN = (EditText) findViewById(R.id.vinNum);
+        editTextArray.add(VN);
         EditText INM = (EditText) findViewById(R.id.IName);
+        editTextArray.add(INM);
         EditText PHN = (EditText) findViewById(R.id.Phone);
+        editTextArray.add(PHN);
         EditText P = (EditText) findViewById(R.id.Policy);
+        editTextArray.add(P);
         EditText EFD = (EditText) findViewById(R.id.effectiveDate);
+        editTextArray.add(EFD);
         EditText END = (EditText) findViewById(R.id.EndDate);
+        editTextArray.add(END);
         EditText CN = (EditText) findViewById(R.id.CompanyName);
+        editTextArray.add(CN);
         EditText RSP = (EditText) findViewById(R.id.RoadSidePhone);
+        editTextArray.add(RSP);
         EditText RED = (EditText) findViewById(R.id.RoadEndDate);
+        editTextArray.add(RED);
         EditText PN = (EditText) findViewById(R.id.PolicyNum);
-//        Log.d(TAG, "ODOM.getHint().toString()===== " + Odometer);
+        editTextArray.add(PN);
+        StringArray.add(make);
+        StringArray.add(model);
+        StringArray.add(year);
+        StringArray.add(Odometer);
+        StringArray.add(licensePlateNumber);
+        StringArray.add(vinNumber);
+        StringArray.add(InsuranceName);
+        StringArray.add(PhoneNumber);
+        StringArray.add(PolicyNumber);
+        StringArray.add(policyStartDate);
+        StringArray.add(policyEndDate);
+        StringArray.add(CompanyName);
+        StringArray.add(RoadSidePhone);
+        StringArray.add(RoadEndDate);
+        StringArray.add(RoadPolicyNum);
 
-        if(!make.equals(""))
-            MK.setHint(make);
-        if(!model.equals(""))
-            MDL.setHint(model);
-        if(!year.equals(""))
-            YR.setHint(year);
-        if(Odometer != null)
-            ODOM.setHint(Odometer);
-        if(!licensePlateNumber.equals(""))
-            LPN.setHint(licensePlateNumber);
-        if(!vinNumber.equals(""))
-            VN.setHint(vinNumber);
-        if(!InsuranceName.equals(""))
-            INM.setHint(InsuranceName);
-        if(!PhoneNumber.equals(""))
-            PHN.setHint(PhoneNumber);
-        if(!PolicyNumber.equals(""))
-            P.setHint(PolicyNumber);
-        if(!policyStartDate.equals(""))
-            EFD.setHint(policyStartDate);
-        if(!policyEndDate.equals(""))
-            END.setHint(policyEndDate);
-        if(!CompanyName.equals(""))
-            CN.setHint(CompanyName);
-        if(!RoadSidePhone.equals(""))
-            RSP.setHint(RoadSidePhone);
-        if(!RoadEndDate.equals(""))
-            RED.setHint(RoadEndDate);
-        if(!RoadPolicyNum.equals(""))
-            PN.setHint(RoadPolicyNum);
+        for (int i = 0; i < editTextArray.size(); i++)
+        {
+            Log.d(TAG, "StringArray1[]===== " + StringArray.get(i).toString());
+            Log.d(TAG, "editTextArray1.get()=======================" + editTextArray.get(i).getText().toString());
+            if(!StringArray.get(i).equals(""))
+                editTextArray.get(i).setHint(StringArray.get(i).toString());
 
+        }
 
         Button buttonTire = (Button) findViewById(R.id.submitButton);
         buttonTire.setOnClickListener(submitListener);
@@ -119,74 +136,34 @@ public class Information_ extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            EditText MK = (EditText) findViewById(R.id.Make);
-            EditText MDL = (EditText) findViewById(R.id.Model);
-            EditText YR = (EditText) findViewById(R.id.Year);
-            EditText ODOM = (EditText) findViewById(R.id.Odometer);
-            EditText LPN = (EditText) findViewById(R.id.License);
-            EditText VN = (EditText) findViewById(R.id.vinNum);
-            EditText INM = (EditText) findViewById(R.id.IName);
-            EditText PHN = (EditText) findViewById(R.id.Phone);
-            EditText P = (EditText) findViewById(R.id.Policy);
-            EditText EFD = (EditText) findViewById(R.id.effectiveDate);
-            EditText END = (EditText) findViewById(R.id.EndDate);
-            EditText CN = (EditText) findViewById(R.id.CompanyName);
-            EditText RSP = (EditText) findViewById(R.id.RoadSidePhone);
-            EditText RED = (EditText) findViewById(R.id.RoadEndDate);
-            EditText PN = (EditText) findViewById(R.id.PolicyNum);
 
-            Log.d(TAG, "ODOM.getHint().toString()===== " + ODOM.getHint().toString());
+            for (int i = 0; i < editTextArray.size(); i++)
+            {
 
-            Log.d(TAG, "getOdometer===== " + GetOdometer());
+                Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
+                if(!editTextArray.get(i).getText().toString().equals(""))
+                    StringArray.set(i, valueOf(editTextArray.get(i).getText().toString()));
+                Log.d(TAG, "StringArray2[]===== " + StringArray.get(i).toString());
+            }
 
-            if(!MK.getText().toString().equals(""))
-                make = MK.getText().toString();
-            if(!MDL.getText().toString().equals(""))
-                model = MDL.getText().toString();
-            if(!YR.getText().toString().equals(""))
-                year = YR.getText().toString();
-            if(!ODOM.getText().toString().equals(""))
-                Odometer = ODOM.getText().toString();
-            if(!LPN.getText().toString().equals(""))
-                licensePlateNumber = LPN.getText().toString();
-            if(!VN.getText().toString().equals(""))
-                vinNumber = VN.getText().toString();
-            if(!INM.getText().toString().equals(""))
-                InsuranceName = INM.getText().toString();
-            if(!PHN.getText().toString().equals(""))
-                PhoneNumber = PHN.getText().toString();
-            if(!P.getText().toString().equals(""))
-                PolicyNumber = P.getText().toString();
-            if(!EFD.getText().toString().equals(""))
-                policyStartDate = EFD.getText().toString();
-            if(!END.getText().toString().equals(""))
-                policyEndDate = END.getText().toString();
-            if(!CN.getText().toString().equals(""))
-                CompanyName = CN.getText().toString();
-            if(!RSP.getText().toString().equals(""))
-                RoadSidePhone = RSP.getText().toString();
-            if(!RED.getText().toString().equals(""))
-                RoadEndDate = RED.getText().toString();
-            if(!PN.getText().toString().equals(""))
-                RoadPolicyNum = PN.getText().toString();
 
 
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-            editor.putString("makeOfCar", make); //Storing string
-            editor.putString("yearOfCar", year); //Storing string
-            editor.putString("modelOfCar", model); //Storing string
-            editor.putString("CarOdometer", GetOdometer()); //Storing string
-            editor.putString("CarVinNumber", vinNumber); //Storing string
-            editor.putString("CarlicensePlateNumber",licensePlateNumber); //Storing string
-            editor.putString("CarInsuranceName",InsuranceName); //Storing string
-            editor.putString("PhoneNumber", PhoneNumber); //Storing string
-            editor.putString("CarPolicyNumber", PolicyNumber); //Storing string
-            editor.putString("CarpolicyStartDate", policyStartDate); //Storing string
-            editor.putString("CarpolicyEndDate", policyEndDate); //Storing string
-            editor.putString("RoadSideCompanyName", CompanyName);
-            editor.putString("RoadSidePhoneNum", RoadSidePhone);
-            editor.putString("RoadSideEndDate", RoadEndDate);
-            editor.putString("RoadSidePolicyNum", RoadPolicyNum);
+            editor.putString("makeOfCar", StringArray.get(0).toString()); //Storing string
+            editor.putString("yearOfCar", StringArray.get(1).toString()); //Storing string
+            editor.putString("modelOfCar", StringArray.get(2).toString()); //Storing string
+            editor.putString("CarOdometer", StringArray.get(3).toString()); //Storing string
+            editor.putString("CarVinNumber", StringArray.get(4).toString()); //Storing string
+            editor.putString("CarlicensePlateNumber", StringArray.get(5).toString()); //Storing string
+            editor.putString("CarInsuranceName",StringArray.get(6).toString()); //Storing string
+            editor.putString("PhoneNumber", StringArray.get(7).toString()); //Storing string
+            editor.putString("CarPolicyNumber", StringArray.get(8).toString()); //Storing string
+            editor.putString("CarpolicyStartDate", StringArray.get(9).toString()); //Storing string
+            editor.putString("CarpolicyEndDate", StringArray.get(10).toString()); //Storing string
+            editor.putString("RoadSideCompanyName", StringArray.get(11).toString());
+            editor.putString("RoadSidePhoneNum", StringArray.get(12).toString());
+            editor.putString("RoadSideEndDate", StringArray.get(13).toString());
+            editor.putString("RoadSidePolicyNum", StringArray.get(14).toString());
             editor.commit();
 
             finish();
@@ -300,17 +277,36 @@ public class Information_ extends AppCompatActivity {
 //            TextView P = (TextView) findViewById(R.id.Policy);
 //            TextView VN = (TextView) findViewById(R.id.vinNum);
 //
+//        if(!make.equals(""))
 //            MK.setHint(make);
-//            YR.setHint(year);
-//            ODOM.setHint(Odometer);
-//            LPN.setHint(licensePlateNumber);
-//            INM.setHint(InsuranceName);
-//            PHN.setHint(PhoneNumber);
+//        if(!model.equals(""))
 //            MDL.setHint(model);
-//            END.setHint(policyEndDate);
-//            EFD.setHint(policyStartDate);
-//            P.setHint(PolicyNumber);
+//        if(!year.equals(""))
+//            YR.setHint(year);
+//        if(Odometer != null)
+//            ODOM.setHint(Odometer);
+//        if(!licensePlateNumber.equals(""))
+//            LPN.setHint(licensePlateNumber);
+//        if(!vinNumber.equals(""))
 //            VN.setHint(vinNumber);
+//        if(!InsuranceName.equals(""))
+//            INM.setHint(InsuranceName);
+//        if(!PhoneNumber.equals(""))
+//            PHN.setHint(PhoneNumber);
+//        if(!PolicyNumber.equals(""))
+//            P.setHint(PolicyNumber);
+//        if(!policyStartDate.equals(""))
+//            EFD.setHint(policyStartDate);
+//        if(!policyEndDate.equals(""))
+//            END.setHint(policyEndDate);
+//        if(!CompanyName.equals(""))
+//            CN.setHint(CompanyName);
+//        if(!RoadSidePhone.equals(""))
+//            RSP.setHint(RoadSidePhone);
+//        if(!RoadEndDate.equals(""))
+//            RED.setHint(RoadEndDate);
+//        if(!RoadPolicyNum.equals(""))
+//            PN.setHint(RoadPolicyNum);
 ////////////////////////////////////////////////////////////////////
     //  Button button = (Button)findViewById(R.id.button);
     /////EditText mEdit1;
@@ -350,3 +346,34 @@ public class Information_ extends AppCompatActivity {
 //            Log.d(TAG, "onCreate() No saved state available");
 //        }
 //
+//
+//            if(!MK.getText().toString().equals(""))
+//                make = MK.getText().toString();
+//            if(!MDL.getText().toString().equals(""))
+//                model = MDL.getText().toString();
+//            if(!YR.getText().toString().equals(""))
+//                year = YR.getText().toString();
+//            if(!ODOM.getText().toString().equals(""))
+//                Odometer = ODOM.getText().toString();
+//            if(!LPN.getText().toString().equals(""))
+//                licensePlateNumber = LPN.getText().toString();
+//            if(!VN.getText().toString().equals(""))
+//                vinNumber = VN.getText().toString();
+//            if(!INM.getText().toString().equals(""))
+//                InsuranceName = INM.getText().toString();
+//            if(!PHN.getText().toString().equals(""))
+//                PhoneNumber = PHN.getText().toString();
+//            if(!P.getText().toString().equals(""))
+//                PolicyNumber = P.getText().toString();
+//            if(!EFD.getText().toString().equals(""))
+//                policyStartDate = EFD.getText().toString();
+//            if(!END.getText().toString().equals(""))
+//                policyEndDate = END.getText().toString();
+//            if(!CN.getText().toString().equals(""))
+//                CompanyName = CN.getText().toString();
+//            if(!RSP.getText().toString().equals(""))
+//                RoadSidePhone = RSP.getText().toString();
+//            if(!RED.getText().toString().equals(""))
+//                RoadEndDate = RED.getText().toString();
+//            if(!PN.getText().toString().equals(""))
+//                RoadPolicyNum = PN.getText().toString();
