@@ -14,18 +14,15 @@ public class node {
     private String nameSpecialRequest;
 
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
-    Node next;
 
     public node () {
         nameSpecialRequest = "";
         dateFormat = new SimpleDateFormat("MM/dd/yy");
-        next = null;
     }
 
     public node (String name, SimpleDateFormat date, Node next) {
         this.nameSpecialRequest = name;
         this.dateFormat = date;
-        this.next = next;
     }
 
     public DateFormat getDateFormat(){
