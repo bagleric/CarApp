@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     //String make;
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -20,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();//////
 
 
+    List<node> NodeArray = new ArrayList<node>();
+    public void addToNodeArray(node ThisNodeObject)
+    {
+//        int i = NodeArray.size() + 1;
+//        NodeArray.set(i, ThisNodeObject);
+//        for(int j = 0; i < NodeArray.size(); j++) {
+//            if(NodeArray.get(j).compareTo(NodeArray.get(j + 1))
+
+       // }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

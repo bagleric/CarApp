@@ -33,13 +33,19 @@ public class node {
         return nameSpecialRequest;
     }
 
-    public void setDateFormat(){ this.dateFormat = dateFormat;}
+    public void setDateFormat(SimpleDateFormat tempDate){ this.dateFormat = tempDate;}
 
-    public void setNameSpecialRequest(){
-        this.nameSpecialRequest = nameSpecialRequest;
+    public void setNameSpecialRequest(String tempSpecialRequest){
+        this.nameSpecialRequest = tempSpecialRequest;
     }
 
     public String toString(){
         return nameSpecialRequest;
     }
+
+    public void setNode(SimpleDateFormat valueDate, String ValueSpecialRequest){
+        setDateFormat(valueDate);
+        setNameSpecialRequest(ValueSpecialRequest);
+    }
+
 }

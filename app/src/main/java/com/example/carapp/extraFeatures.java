@@ -25,7 +25,6 @@ import java.util.Set;
  */
 
 public class extraFeatures extends AppCompatActivity {
-    private Set<String> requests = new HashSet<String>();
     String nameSpecialRequest;
     String miles;
     String CurrentOdometer;
@@ -46,10 +45,7 @@ public class extraFeatures extends AppCompatActivity {
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
-        requests = preferences.getStringSet("newService", requests);
-        Log.d(TAG, "Requests=======================" + requests);
-        //for(int = 0;  )
-        //Toast.makeText(extraFeatures.this, (requests), Toast.LENGTH_LONG).show();
+
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
         EditText setOd = (EditText) findViewById(R.id.Odometer);
         EditText setM = (EditText) findViewById(R.id.milesTill);
@@ -95,17 +91,15 @@ public class extraFeatures extends AppCompatActivity {
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
     //        editor.putString("Miles", miles); //Storing string
-            node n = new node(nameSpecialRequest, new SimpleDateFormat("MM/dd/yy"), null);
-            String temp = n.toString();
-            requests.add(temp);
-            editor.putStringSet("newService", requests);
+
 
             editor.commit();
-            //////////////////////////////////////////////////////////////
-            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
-            int num = Integer.valueOf(MnthsTill.getText().toString());
-            DaysTill(num);
-/////////////////////////////////
+            ////////////////////////////////////////
+            MainActivity test = new MainActivity();
+            node tempNode = new node();
+            tempNode.setNode(new SimpleDateFormat("MM/dd/yy"), nameSpecialRequest);
+            test.addToNodeArray(tempNode);
+            //////////////////////////////////////
             finish();
 
 
@@ -181,3 +175,8 @@ public class extraFeatures extends AppCompatActivity {
 
 
 }
+//////////////////////////////////////////////////////////////
+//            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
+//            int num = Integer.valueOf(MnthsTill.getText().toString());
+//            DaysTill(num);
+/////////////////////////////////
