@@ -117,15 +117,15 @@ public class Information_ extends AppCompatActivity{
         StringArray.add(RoadEndDate);
         StringArray.add(RoadPolicyNum);
 
-        for (int i = 0; i < editTextArray.size(); i++)
-        {
-            Log.d(TAG, "StringArray1[]===== " + StringArray.get(i).toString());
-            Log.d(TAG, "editTextArray1.get()=======================" + editTextArray.get(i).getText().toString());
-            if(!StringArray.get(i).equals(""))
-                editTextArray.get(i).setHint(StringArray.get(i).toString());
+        for (int i = 0; i < editTextArray.size(); i++) {
+            if (StringArray.get(i) != null) {
+                Log.d(TAG, "StringArray1[]===== " + StringArray.get(i).toString());
+                Log.d(TAG, "editTextArray1.get()=======================" + editTextArray.get(i).getText().toString());
+                if (!StringArray.get(i).equals(""))
+                    editTextArray.get(i).setHint(StringArray.get(i).toString());
 
+            }
         }
-
         Button buttonTire = (Button) findViewById(R.id.submitButton);
         buttonTire.setOnClickListener(submitListener);
     }
@@ -135,15 +135,14 @@ public class Information_ extends AppCompatActivity{
         public void onClick(View v) {
 
 
-            for (int i = 0; i < editTextArray.size(); i++)
-            {
-
-                Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
-                if(!editTextArray.get(i).getText().toString().equals(""))
-                    StringArray.set(i, valueOf(editTextArray.get(i).getText().toString()));
-                Log.d(TAG, "StringArray2[]===== " + StringArray.get(i).toString());
+            for (int i = 0; i < editTextArray.size(); i++) {
+                if (editTextArray.get(i) != null) {
+                    Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
+                    if (!editTextArray.get(i).getText().toString().equals(""))
+                        StringArray.set(i, valueOf(editTextArray.get(i).getText().toString()));
+                    Log.d(TAG, "StringArray2[]===== " + StringArray.get(i).toString());
+                }
             }
-
 
 
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();

@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
         Information_ info = new Information_();
         Button button = (Button)findViewById(R.id.oilButton);
         String oilButtonText = preferences.getString("CarOdometer", info.GetOdometer());
-        if(!oilButtonText.equals(""))
-        button.setText(oilButtonText);
-        Log.d(TAG, "oilButton=======================" + oilButtonText);
-
+        if(oilButtonText != null) {
+            if (!oilButtonText.equals(""))
+                button.setText(oilButtonText);
+            Log.d(TAG, "oilButton=======================" + oilButtonText);
+        }
 
     }
 
