@@ -102,7 +102,7 @@ public class My_calendar extends AppCompatActivity {
 
 
     public void ShowDialogOnButtonClick() {
-        btn = (Button) findViewById(R.id.button);
+        btn = (Button) findViewById(R.id.addService);
         btn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
