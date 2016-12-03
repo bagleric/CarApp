@@ -1,6 +1,6 @@
 package com.example.carapp;
 
-import android.content.SharedPreferences;
+import java.util.Date;
 
 /**
  * Created by Eric on 11/2/2016.
@@ -21,7 +21,7 @@ public class Service {
     private static int timeToNext;
     private int lastMiles = 0;
     private int nextServiceMiles;
-    private String nextServiceDate;
+    private Date ServiceDate;
     private Boolean isTime = false;
 
 
@@ -34,8 +34,8 @@ public class Service {
     public String getCurrentDate(){
         return currentDate;
     }
-    public String getNextServiceDate(){
-        return nextServiceDate;
+    public Date getNextServiceDate(){
+        return ServiceDate;
     }
     public void setCurrentMiles(){
         Odemeter = main.getDriverMiles();
