@@ -45,7 +45,6 @@ public class extraFeatures extends AppCompatActivity {
     protected void onCreate(Bundle savedExtraFeaturesState) {
         super.onCreate(savedExtraFeaturesState);
         setContentView(R.layout.extra_features);
-//        SharedPreferences preferences = getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
         SharedPreferences preferences = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
         final android.icu.util.Calendar cal = android.icu.util.Calendar.getInstance();
         year_x = cal.get(Calendar.YEAR);
@@ -58,8 +57,7 @@ public class extraFeatures extends AppCompatActivity {
         miles = preferences.getString("Miles", ""); //Storing string
         requests = preferences.getStringSet("newService", requests);
         Log.d(TAG, "Requests=======================" + requests);
-        //for(int = 0;  )
-        //Toast.makeText(extraFeatures.this, (requests), Toast.LENGTH_LONG).show();
+
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
         EditText setOd = (EditText) findViewById(R.id.Odometer);
         EditText setM = (EditText) findViewById(R.id.milesTill);

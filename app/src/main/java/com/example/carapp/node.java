@@ -4,6 +4,7 @@ import org.w3c.dom.Node;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Created by Mike on 12/2/2016.
@@ -12,7 +13,7 @@ import java.text.SimpleDateFormat;
 public class node {
 
     private String nameSpecialRequest;
-
+    Calendar setCalEvent;
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
 
     public node () {
@@ -25,15 +26,15 @@ public class node {
         this.dateFormat = date;
     }
 
-    public DateFormat getDateFormat(){
-        return dateFormat;
+    public Calendar getDateFormat(){
+        return setCalEvent;
     }
 
     public String getNameSpecialRequest(){
         return nameSpecialRequest;
     }
 
-    public void setDateFormat(SimpleDateFormat tempDate){ this.dateFormat = tempDate;}
+    public void setDateFormat(Calendar tempDate){ this.setCalEvent = tempDate;}
 
     public void setNameSpecialRequest(String tempSpecialRequest){
         this.nameSpecialRequest = tempSpecialRequest;
