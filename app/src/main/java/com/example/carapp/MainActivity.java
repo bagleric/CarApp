@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     List<node> NodeArray = new ArrayList<node>();
     public void addToNodeArray(node ThisNodeObject)
     {
-//        int i = NodeArray.size() + 1;
-//        NodeArray.set(i, ThisNodeObject);
+        int i = NodeArray.size() + 1;
+        NodeArray.set(i, ThisNodeObject);
 //        for(int j = 0; i < NodeArray.size(); j++) {
 //            if(NodeArray.get(j).compareTo(NodeArray.get(j + 1))
 
