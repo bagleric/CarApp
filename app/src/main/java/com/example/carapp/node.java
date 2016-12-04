@@ -44,7 +44,7 @@ public class node {
         return nameSpecialRequest;
     }
 
-    public void setNode(SimpleDateFormat valueDate, String ValueSpecialRequest){
+    public void setNode(Calendar valueDate, String ValueSpecialRequest){
         setDateFormat(valueDate);
         setNameSpecialRequest(ValueSpecialRequest);
     }
