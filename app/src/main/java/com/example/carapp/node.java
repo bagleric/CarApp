@@ -19,7 +19,6 @@ public class node {
     public node () {
         nameSpecialRequest = "";
         setCalEvent = Calendar.getInstance();
-//        dateFormat = new SimpleDateFormat("MM/dd/yy");
     }
 
     public node (String name, Calendar date) {

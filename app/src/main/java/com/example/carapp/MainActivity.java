@@ -10,10 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     List<node> NodeArray = new ArrayList<node>();
+
     public void addToNodeArrayAndSort(node ThisNodeObject)
     {
         node methodCaller = new node();
@@ -51,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+//        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+//        Gson gson = new Gson();
+//        String json = gson.toJson(NodeArray);
+//
+//        editor.putString("NodeArray", json);
+//        editor.commit();
     }
 
     @Override
