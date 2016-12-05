@@ -8,18 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class MainActivity extends AppCompatActivity {
     //String make;
@@ -171,6 +162,7 @@ startActivity(information);
     public void setDriverMiles(int Dmiles) {
         this.driverMiles = Dmiles;
     }
+    public List<node> getNodeArray(){return NodeArray; }
 
 
 }
