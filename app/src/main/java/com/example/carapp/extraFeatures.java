@@ -27,12 +27,14 @@ import java.util.Set;
  */
 
 public class extraFeatures extends AppCompatActivity {
-    private Set<String> requests = new HashSet<String>();
+//    private Set<String> requests = new HashSet<String>();
     String nameSpecialRequest;
     String miles;
     String CurrentOdometer;
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
-   // public static final String PREFS_NAME = "MyPrefsFile";
+    Calendar calObject = Calendar.getInstance();
+
+    // public static final String PREFS_NAME = "MyPrefsFile";
    private static final String TAG = extraFeatures.class.getSimpleName();
     Button btn;
     int year_x, month_x, day_x;
@@ -47,25 +49,22 @@ public class extraFeatures extends AppCompatActivity {
         setContentView(R.layout.extra_features);
         SharedPreferences preferences = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
         final android.icu.util.Calendar cal = android.icu.util.Calendar.getInstance();
+
         year_x = cal.get(Calendar.YEAR);
         month_x = cal.get(Calendar.MONTH);
         day_x = cal.get(Calendar.DAY_OF_MONTH);
         ShowDialogOnButtonClick();
+
         Information_ info = new Information_();
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
-        requests = preferences.getStringSet("newService", requests);
-        Log.d(TAG, "Requests=======================" + requests);
+        //requests = preferences.getStringSet("newService", requests);
 
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
         EditText setOd = (EditText) findViewById(R.id.Odometer);
         EditText setM = (EditText) findViewById(R.id.milesTill);
 
-
-
-
-        //CurrentOdometer = info.GetOdometer();
         if(!nameSpecialRequest.equals(""))
             _nameSpecialR.setHint(nameSpecialRequest);
         if(!miles.equals(""))
@@ -91,32 +90,31 @@ public class extraFeatures extends AppCompatActivity {
            EditText _nameSpecialR = (EditText) findViewById(R.id.name);
            EditText setOd = (EditText) findViewById(R.id.Odometer);
            EditText setM = (EditText) findViewById(R.id.milesTill);
+
             if(!_nameSpecialR.getText().toString().equals(""))
                 nameSpecialRequest = _nameSpecialR.getText().toString();
             if(!setM.getText().toString().equals(""))
                 miles = setM.getText().toString();
             if(!setOd.getText().toString().equals(""))
                 CurrentOdometer = setOd.getText().toString();
+
             Information_ info = new Information_();
             SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-  //          editor.putString("SpecialService", nameSpecialRequest); //Storing string
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
-    //        editor.putString("Miles", miles); //Storing string
-            node n = new node(nameSpecialRequest, new SimpleDateFormat("MM/dd/yy"), null);
-            String temp = n.toString();
-            requests.add(temp);
-            editor.putStringSet("newService", requests);
+
+            node newNode = new node(nameSpecialRequest, calObject);
+            Log.d(TAG,newNode.getDateFormat().toString());
+            Log.d(TAG,newNode.getNameSpecialRequest());
+            //  String temp = newNode.toString();
+          //  requests.add(temp);
+          //  editor.putStringSet("newService", requests);
+
+            MainActivity addInformation = new MainActivity();
+            addInformation.addToNodeArrayAndSort(newNode);
 
             editor.commit();
-            //////////////////////////////////////////////////////////////
-//            EditText MnthsTill = (EditText) findViewById(R.id.monthsTill);
-//            int num = Integer.valueOf(MnthsTill.getText().toString());
-//            DaysTill(num);
-/////////////////////////////////
             finish();
-
-
 
         }
     };
@@ -214,6 +212,12 @@ public class extraFeatures extends AppCompatActivity {
             day_x = dayOfMonth;
             Toast.makeText(extraFeatures.this, year_x + "/" + month_x +"/" + day_x, Toast.LENGTH_LONG).show();
 
+            /////////////////////////////////////
+            //This sets the date ints into a date object
+            calObject.set(Calendar.MONTH, month_x);
+            calObject.set(Calendar.DATE, day_x);
+            calObject.set(Calendar.YEAR, year_x);
+            //////////////////////////////////
         }
     };
 

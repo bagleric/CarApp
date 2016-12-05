@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
+
 public class MainActivity extends AppCompatActivity {
     //String make;
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -26,15 +28,31 @@ public class MainActivity extends AppCompatActivity {
 
 
     List<node> NodeArray = new ArrayList<node>();
-    public void addToNodeArray(node ThisNodeObject)
+    public void addToNodeArrayAndSort(node ThisNodeObject)
     {
-        int i = NodeArray.size() + 1;
-        NodeArray.set(i, ThisNodeObject);
-//        for(int j = 0; i < NodeArray.size(); j++) {
-//            if(NodeArray.get(j).compareTo(NodeArray.get(j + 1))
-
-       // }
+        node methodCaller = new node();
+        if(NodeArray.size() == 0) {
+            NodeArray.add(0, ThisNodeObject);
+            Log.d("Size of array =====", String.valueOf(NodeArray.size()));
+        }
+        else{
+            int i = NodeArray.size() + 1;
+            NodeArray.add(i, ThisNodeObject);
+        }
+        if(NodeArray.size() > 1) {
+            Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
+            for (int j = 0; j < NodeArray.size(); j++) {
+                if (methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
+                    node temp = NodeArray.get(j);
+                    NodeArray.set(j, NodeArray.get(j + 1));
+                    j++;
+                    NodeArray.set(j, temp);
+                    j = 0;
+                }
+            }
+        }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +61,19 @@ public class MainActivity extends AppCompatActivity {
         Information_ info = new Information_();
         Button button = (Button)findViewById(R.id.oilButton);
         String oilButtonText = preferences.getString("CarOdometer", info.GetOdometer());
-        if(oilButtonText != null) {
-            if (!oilButtonText.equals(""))
-                button.setText(oilButtonText);
-            Log.d(TAG, "oilButton=======================" + oilButtonText);
-        }
+//        if(oilButtonText != null) {
+//            if (!oilButtonText.equals(""))
+//                button.setText(oilButtonText);
+//            Log.d(TAG, "oilButton=======================" + oilButtonText);
+//        }
 
+
+        if(NodeArray != null) {
+            if (NodeArray.size() != 0)
+                for(int j = 0; j < NodeArray.size(); j++) {
+                    Log.d(TAG, "Node Array position " + j + " =======================" + NodeArray.get(j));
+                }
+        }
     }
 
     @Override

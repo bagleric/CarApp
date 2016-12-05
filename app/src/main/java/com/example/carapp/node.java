@@ -4,6 +4,7 @@ import org.w3c.dom.Node;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -14,16 +15,16 @@ public class node {
 
     private String nameSpecialRequest;
     Calendar setCalEvent;
-    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
 
     public node () {
         nameSpecialRequest = "";
-        dateFormat = new SimpleDateFormat("MM/dd/yy");
+        setCalEvent = Calendar.getInstance();
+//        dateFormat = new SimpleDateFormat("MM/dd/yy");
     }
 
-    public node (String name, SimpleDateFormat date, Node next) {
+    public node (String name, Calendar date) {
         this.nameSpecialRequest = name;
-        this.dateFormat = date;
+        this.setCalEvent = date;
     }
 
     public Calendar getDateFormat(){
@@ -48,5 +49,7 @@ public class node {
         setDateFormat(valueDate);
         setNameSpecialRequest(ValueSpecialRequest);
     }
-
+    public boolean isDateOneLaterThanDateTwo(node Date1, node Date2){
+       return Date1.getDateFormat().after(Date2.getDateFormat());
+    }
 }

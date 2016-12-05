@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class My_calendar extends AppCompatActivity {
     final String[] services = {};
-    Calendar cal = Calendar.getInstance();
+    Calendar calObject = Calendar.getInstance();
     private static final String TAG = Information_.class.getSimpleName();
 
     Button btn;
@@ -131,11 +131,10 @@ public class My_calendar extends AppCompatActivity {
             Toast.makeText(My_calendar.this, year_x + "/" + month_x +"/" + day_x, Toast.LENGTH_LONG).show();
             /////////////////////////////////////
             //This sets the date ints into a date object
-            cal.set(Calendar.MONTH, month_x);
-            cal.set(Calendar.DATE, day_x);
-            cal.set(Calendar.YEAR, year_x);
+            calObject.set(Calendar.MONTH, month_x);
+            calObject.set(Calendar.DATE, day_x);
+            calObject.set(Calendar.YEAR, year_x);
             //////////////////////////////////
-
         }
     };
 

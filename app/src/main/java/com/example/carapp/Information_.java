@@ -12,7 +12,6 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static java.lang.String.valueOf;
 
@@ -64,10 +63,10 @@ public class Information_ extends AppCompatActivity{
             PolicyNumber = preferences.getString("CarPolicyNumber", ""); //Storing string
             policyStartDate = preferences.getString("CarpolicyStartDate", ""); //Storing string
             policyEndDate = preferences.getString("CarpolicyEndDate", ""); //Storing string
-        CompanyName = preferences.getString("RoadSideCompanyName", "");
-        RoadSidePhone = preferences.getString("RoadSidePhoneNum", "");
-        RoadEndDate = preferences.getString("RoadSideEndDate", "");
-        RoadPolicyNum = preferences.getString("RoadSidePolicyNum", "");
+            CompanyName = preferences.getString("RoadSideCompanyName", "");
+            RoadSidePhone = preferences.getString("RoadSidePhoneNum", "");
+            RoadEndDate = preferences.getString("RoadSideEndDate", "");
+            RoadPolicyNum = preferences.getString("RoadSidePolicyNum", "");
 
         Log.d(TAG, "set Content View " + make);
 
@@ -134,7 +133,6 @@ public class Information_ extends AppCompatActivity{
         @Override
         public void onClick(View v) {
 
-
             for (int i = 0; i < editTextArray.size(); i++) {
                 if (editTextArray.get(i) != null) {
                     Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
@@ -161,6 +159,7 @@ public class Information_ extends AppCompatActivity{
             editor.putString("RoadSidePhoneNum", StringArray.get(12).toString());
             editor.putString("RoadSideEndDate", StringArray.get(13).toString());
             editor.putString("RoadSidePolicyNum", StringArray.get(14).toString());
+
             editor.commit();
 
             finish();
