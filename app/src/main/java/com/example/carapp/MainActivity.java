@@ -39,17 +39,7 @@ public class MainActivity extends AppCompatActivity {
     public List<node> addToNodeArrayAndSort(node ThisNodeObject)
     {
         Log.d(TAG, "test ======================= 2");
-        /////////////////////here we are saving the array
-//        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        Gson gson = new Gson();
 
-        /////////////////////////here we are reading the array from the saved state, and setting it
-//        String json = sharedPrefs.getString("ArrayList", "NodeArray");
-//        Type type = new TypeToken<ArrayList<node>>() {}.getType();
-//        ArrayList<node> arrayList = gson.fromJson(json, type);
-
-//        if(NodeArray != null)
-//            NodeArray = new ArrayList<node>(arrayList);
         Log.d(TAG, "trying to add to array");
         node methodCaller = new node();
         if(NodeArray.size() < 1) {
@@ -72,11 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-//
-//        SharedPreferences.Editor editor = sharedPrefs.edit();
-//        json = gson.toJson(NodeArray);
-//        editor.putString("NodeArray", json);
-//        editor.commit();
             return NodeArray;
     }
 
@@ -84,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ///saving Node array
         SharedPreferences sharedPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = "";
@@ -184,7 +169,9 @@ startActivity(information);
     public void setDriverMiles(int Dmiles) {
         this.driverMiles = Dmiles;
     }
-
+    public  List<node> getNodeArray() {
+        return NodeArray;
+    }
 
 }
 

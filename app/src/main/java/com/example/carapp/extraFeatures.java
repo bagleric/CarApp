@@ -23,12 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-=======
->>>>>>> 952fdd78c153dd45b7edd0eb87010a32fcc8866d
 
 /**
  * Created by Mike on 11/11/2016.
@@ -114,9 +111,7 @@ public class extraFeatures extends AppCompatActivity {
             node newNode = new node(nameSpecialRequest, calObject);
             Log.d(TAG,newNode.getDateFormat().toString());
             Log.d(TAG,newNode.getNameSpecialRequest());
-            //  String temp = newNode.toString();
-          //  requests.add(temp);
-          //  editor.putStringSet("newService", requests);
+
 
             MainActivity addInformation = new MainActivity();
             List<node> NewNodeArray;
