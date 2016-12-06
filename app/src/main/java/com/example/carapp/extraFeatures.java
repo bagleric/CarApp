@@ -23,9 +23,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+=======
+>>>>>>> 952fdd78c153dd45b7edd0eb87010a32fcc8866d
 
 /**
  * Created by Mike on 11/11/2016.
@@ -195,6 +198,12 @@ public class extraFeatures extends AppCompatActivity {
 
 
     }
+
+
+    /***********************************************
+     *  The Following code implements the date picker dialog and allows
+     *  a user to select a specific date.
+     ***********************************************/
     public void ShowDialogOnButtonClick() {
         btn = (Button) findViewById(R.id.button2);
         btn.setOnClickListener(
@@ -232,4 +241,5 @@ public class extraFeatures extends AppCompatActivity {
         }
     };
 
+    // end of date picker dialogue.
 }

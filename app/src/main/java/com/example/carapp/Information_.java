@@ -1,11 +1,9 @@
 package com.example.carapp;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.util.Log;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -120,9 +118,9 @@ public class Information_ extends AppCompatActivity{
             if (StringArray.get(i) != null) {
                 Log.d(TAG, "StringArray1[]===== " + StringArray.get(i).toString());
                 Log.d(TAG, "editTextArray1.get()=======================" + editTextArray.get(i).getText().toString());
-                if (!StringArray.get(i).equals(""))
+                if (!StringArray.get(i).equals("")) {
                     editTextArray.get(i).setHint(StringArray.get(i).toString());
-
+                }
             }
         }
         Button buttonTire = (Button) findViewById(R.id.submitButton);
