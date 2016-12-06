@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +16,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -99,7 +104,7 @@ public class extraFeatures extends AppCompatActivity {
                 CurrentOdometer = setOd.getText().toString();
 
             Information_ info = new Information_();
-            SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor = getSharedPreferences(TAG, MODE_PRIVATE).edit();
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
 
@@ -111,8 +116,14 @@ public class extraFeatures extends AppCompatActivity {
           //  editor.putStringSet("newService", requests);
 
             MainActivity addInformation = new MainActivity();
-            addInformation.addToNodeArrayAndSort(newNode);
+            List<node> NewNodeArray;
+            NewNodeArray = addInformation.addToNodeArrayAndSort(newNode);
 
+            Gson gson = new Gson();
+
+            String json = gson.toJson(NewNodeArray);
+
+            editor.putString(TAG, json);
             editor.commit();
             finish();
 

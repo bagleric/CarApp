@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +12,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -33,16 +36,29 @@ public class MainActivity extends AppCompatActivity {
 
     List<node> NodeArray = new ArrayList<node>();
 
-    public void addToNodeArrayAndSort(node ThisNodeObject)
+    public List<node> addToNodeArrayAndSort(node ThisNodeObject)
     {
+        Log.d(TAG, "test ======================= 2");
+        /////////////////////here we are saving the array
+//        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        Gson gson = new Gson();
+
+        /////////////////////////here we are reading the array from the saved state, and setting it
+//        String json = sharedPrefs.getString("ArrayList", "NodeArray");
+//        Type type = new TypeToken<ArrayList<node>>() {}.getType();
+//        ArrayList<node> arrayList = gson.fromJson(json, type);
+
+//        if(NodeArray != null)
+//            NodeArray = new ArrayList<node>(arrayList);
+        Log.d(TAG, "trying to add to array");
         node methodCaller = new node();
-        if(NodeArray.size() == 0) {
-            NodeArray.add(0, ThisNodeObject);
+        if(NodeArray.size() < 1) {
+            NodeArray.add(ThisNodeObject);
             Log.d("Size of array =====", String.valueOf(NodeArray.size()));
         }
         else{
-            int i = NodeArray.size() + 1;
-            NodeArray.add(i, ThisNodeObject);
+            NodeArray.add(ThisNodeObject);
+            Log.d("new size of array =====", String.valueOf(NodeArray.size()));
         }
         if(NodeArray.size() > 1) {
             Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
@@ -56,40 +72,37 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-//        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-//        Gson gson = new Gson();
-//        String json = gson.toJson(NodeArray);
 //
+//        SharedPreferences.Editor editor = sharedPrefs.edit();
+//        json = gson.toJson(NodeArray);
 //        editor.putString("NodeArray", json);
 //        editor.commit();
+            return NodeArray;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        SharedPreferences sharedPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = "";
+               json =  sharedPrefs.getString("ArrayList", json);
+        Type type = new TypeToken<ArrayList<node>>() {}.getType();
+        ArrayList<node> arrayList = gson.fromJson(json, type);
+
+        if(arrayList != null)
+        NodeArray = new ArrayList<node>(arrayList);
+
         Information_ info = new Information_();
-        Button button = (Button)findViewById(R.id.oilButton);
-        String oilButtonText = preferences.getString("CarOdometer", info.GetOdometer());
-//        if(oilButtonText != null) {
-//            if (!oilButtonText.equals(""))
-//                button.setText(oilButtonText);
-//            Log.d(TAG, "oilButton=======================" + oilButtonText);
-//        }
 
-
-        if(NodeArray != null) {
-            if (NodeArray.size() != 0)
-                for(int j = 0; j < NodeArray.size(); j++) {
-                    Log.d(TAG, "Node Array position " + j + " =======================" + NodeArray.get(j));
-                }
-        }
     }
 
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
+
 
         Button buttonTire = (Button) findViewById(R.id.tireButton);
         buttonTire.setOnClickListener(tireListener);
