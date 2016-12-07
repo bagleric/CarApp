@@ -13,8 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class My_calendar extends AppCompatActivity {
-    final String[] services = {};
+    List<String> services = new ArrayList<String>();
     private static final String TAG = Information_.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +66,17 @@ public class My_calendar extends AppCompatActivity {
 
     private void populateServices() {
         MainActivity main = new MainActivity();
-
         List<node> serviceList = new ArrayList<node>();
         serviceList= main.getNodeArray();
+        services.add("You don't have any services registered.");
         if(serviceList != null) {
             for (int i = 0; i < serviceList.size(); i++) {
                 String thService = serviceList.get(i).getDateFormat() + " " + serviceList.get(i).getNameSpecialRequest();
-                services[i] = thService;
+                services.add(i, thService);
                 Log.i("Calendar", "creating the list");
             }
         }
+
     }
 
 
