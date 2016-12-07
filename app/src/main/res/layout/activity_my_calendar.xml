@@ -13,16 +13,10 @@
 
 
     <Button
-        android:text="Button"
+        android:text="Add a Service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addService" />
-
-
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/calendarView2" />
+        android:id="@+id/addButton" />
 
     <ListView
             android:layout_width="match_parent"
