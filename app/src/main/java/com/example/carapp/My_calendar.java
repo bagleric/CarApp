@@ -1,11 +1,13 @@
 package com.example.carapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -62,6 +64,8 @@ public class My_calendar extends AppCompatActivity {
 
         });
 
+        Button buttonButton = (Button) findViewById(R.id.addButton);
+        buttonButton.setOnClickListener(addListener);
     }
 
     private void populateServices() {
@@ -78,6 +82,17 @@ public class My_calendar extends AppCompatActivity {
         }
 
     }
+
+    private View.OnClickListener addListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Button button = (Button)findViewById(R.id.addButton);
+            //button.setText("You touched the add button!");
+            Intent add = new Intent(My_calendar.this, extraFeatures.class);
+            startActivity(add);
+        }
+    };
+
 
 
 //public void addService(Service theService){
