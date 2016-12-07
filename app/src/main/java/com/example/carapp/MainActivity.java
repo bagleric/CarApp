@@ -38,20 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
     public List<node> addToNodeArrayAndSort(node ThisNodeObject)
     {
-        Log.d(TAG, "test ======================= 2");
 
         Log.d(TAG, "trying to add to array");
         node methodCaller = new node();
         if(NodeArray.size() < 1) {
             NodeArray.add(ThisNodeObject);
-            Log.d("Size of array =====", String.valueOf(NodeArray.size()));
+          //  Log.d("Size of array =====", String.valueOf(NodeArray.size()));
         }
         else{
             NodeArray.add(ThisNodeObject);
-            Log.d("new size of array =====", String.valueOf(NodeArray.size()));
+          //  Log.d("new size of array =====", String.valueOf(NodeArray.size()));
         }
         if(NodeArray.size() > 1) {
-            Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
+         //   Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
             for (int j = 0; j < NodeArray.size(); j++) {
                 if (methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
                     node temp = NodeArray.get(j);
@@ -62,25 +61,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-            return NodeArray;
+        Log.d("new size of array =====", String.valueOf(NodeArray.size()));
+        for(int k = 0; k < NodeArray.size(); k++)
+            Log.d("new size of array =====", NodeArray.get(k).toString());
+
+        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(NodeArray);
+        editor.putString(TAG, json);
+        editor.commit();
+        return NodeArray;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ///saving Node array
-        SharedPreferences sharedPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = "";
-               json =  sharedPrefs.getString("ArrayList", json);
-        Type type = new TypeToken<ArrayList<node>>() {}.getType();
-        ArrayList<node> arrayList = gson.fromJson(json, type);
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-        if(arrayList != null)
-        NodeArray = new ArrayList<node>(arrayList);
 
-        Information_ info = new Information_();
+        Log.d("new size of array =====", String.valueOf(NodeArray.size()));
+        for(int k = 0; k < NodeArray.size(); k++)
+            Log.d("new size of array =====", NodeArray.get(k).toString());
 
     }
 
@@ -102,8 +104,20 @@ public class MainActivity extends AppCompatActivity {
         buttonOil.setOnClickListener(oilListener);
         Service oil = new Service();
 
+        Button CalendarButton  = (Button) findViewById(R.id.ServiceCalendar);
+        CalendarButton.setOnClickListener(ServiceCalendarListener);
+        Service ServiceCal = new Service();
+
     }
 
+    private View.OnClickListener ServiceCalendarListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Button button = (Button)findViewById(R.id.ServiceCalendar);
+            Intent calendar = new Intent(MainActivity.this, My_calendar.class);
+            startActivity(calendar);
+        }
+    };
         private View.OnClickListener oilListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -170,7 +184,8 @@ startActivity(information);
         this.driverMiles = Dmiles;
     }
     public  List<node> getNodeArray() {
-        return NodeArray;
+        extraFeatures e = new extraFeatures();
+        return e.NodeArray;
     }
 
 }

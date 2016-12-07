@@ -76,6 +76,12 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/add" />
 
+    <Button
+        android:text="Service Calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ServiceCalendar" />
+
 
 </LinearLayout>
 

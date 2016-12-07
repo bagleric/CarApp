@@ -17,7 +17,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,14 +34,18 @@ import java.util.Set;
  */
 
 public class extraFeatures extends AppCompatActivity {
-//    private Set<String> requests = new HashSet<String>();
+
+    List<node> NodeArray = new ArrayList<node>();
+
+public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String ARRAY_NAME = "array_location";
+    String json;
     String nameSpecialRequest;
     String miles;
     String CurrentOdometer;
     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
     Calendar calObject = Calendar.getInstance();
 
-    // public static final String PREFS_NAME = "MyPrefsFile";
    private static final String TAG = extraFeatures.class.getSimpleName();
     Button btn;
     int year_x, month_x, day_x;
@@ -52,7 +58,7 @@ public class extraFeatures extends AppCompatActivity {
     protected void onCreate(Bundle savedExtraFeaturesState) {
         super.onCreate(savedExtraFeaturesState);
         setContentView(R.layout.extra_features);
-        SharedPreferences preferences = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+        SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         final android.icu.util.Calendar cal = android.icu.util.Calendar.getInstance();
 
         year_x = cal.get(Calendar.YEAR);
@@ -64,6 +70,16 @@ public class extraFeatures extends AppCompatActivity {
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
+//        Gson gson = new Gson();
+        json = preferences.getString(ARRAY_NAME, "");
+//        Type type = new TypeToken<ArrayList<node>>() {}.getType();
+//        NodeArray = gson.fromJson(json, NodeArray.getClass());
+if(json != null)
+        Log.d("Making sure array =====", json);
+//        Log.d("nnnew size of =====", String.valueOf(NodeArray.size()));
+//        for(int k = 0; k < NodeArray.size(); k++)
+
+//            Log.d("nkew size of =====", NodeArray.get(k).toString());
         //requests = preferences.getStringSet("newService", requests);
 
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
@@ -81,53 +97,73 @@ public class extraFeatures extends AppCompatActivity {
         buttonTire.setOnClickListener(submitListener);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();  // Always call the superclass method first
-        Button buttonTire = (Button) findViewById(R.id.button);
-        buttonTire.setOnClickListener(submitListener);
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();  // Always call the superclass method first
+//        Button buttonTire = (Button) findViewById(R.id.button);
+//        buttonTire.setOnClickListener(submitListener);
+//    }
 
     private View.OnClickListener submitListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             //we need this just commented out for testing
-           EditText _nameSpecialR = (EditText) findViewById(R.id.name);
-           EditText setOd = (EditText) findViewById(R.id.Odometer);
-           EditText setM = (EditText) findViewById(R.id.milesTill);
+            EditText _nameSpecialR = (EditText) findViewById(R.id.name);
+            EditText setOd = (EditText) findViewById(R.id.Odometer);
+            EditText setM = (EditText) findViewById(R.id.milesTill);
 
-            if(!_nameSpecialR.getText().toString().equals(""))
+            if (!_nameSpecialR.getText().toString().equals(""))
                 nameSpecialRequest = _nameSpecialR.getText().toString();
-            if(!setM.getText().toString().equals(""))
+            if (!setM.getText().toString().equals(""))
                 miles = setM.getText().toString();
-            if(!setOd.getText().toString().equals(""))
+            if (!setOd.getText().toString().equals(""))
                 CurrentOdometer = setOd.getText().toString();
 
             Information_ info = new Information_();
-            SharedPreferences.Editor editor = getSharedPreferences(TAG, MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
 
             node newNode = new node(nameSpecialRequest, calObject);
-            Log.d(TAG,newNode.getDateFormat().toString());
-            Log.d(TAG,newNode.getNameSpecialRequest());
+          //  Log.d(TAG, newNode.getDateFormat().toString());
+          //  Log.d(TAG, newNode.getNameSpecialRequest());
 
-
-            MainActivity addInformation = new MainActivity();
-            List<node> NewNodeArray;
-            NewNodeArray = addInformation.addToNodeArrayAndSort(newNode);
-
+            addNodeArrayAndSort(newNode);
             Gson gson = new Gson();
-
-            String json = gson.toJson(NewNodeArray);
-
-            editor.putString(TAG, json);
+//
+            json = "value" + gson.toJson(NodeArray);
+            Log.d("array =====", json);
+            editor.putString(ARRAY_NAME, json);
             editor.commit();
             finish();
 
         }
     };
 
+    public List<node> addNodeArrayAndSort(node ThisNodeObject)
+    {
+        //  Log.d(TAG, "trying to add to array");
+
+        //node methodCaller = new node();
+        Log.d("object =====", ThisNodeObject.getNameSpecialRequest());
+            NodeArray.add(ThisNodeObject);
+              Log.d("new size of array =====", String.valueOf(NodeArray.size()));
+
+//        if (NodeArray.size() > 1) {
+//            //   Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
+//            for (int j = 0; j < NodeArray.size(); j++) {
+//                if (methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
+//                    node temp = NodeArray.get(j);
+//                    NodeArray.set(j, NodeArray.get(j + 1));
+//                    j++;
+//                    NodeArray.set(j, temp);
+//                    j = 0;
+//                }
+//            }
+//        }
+
+        return NodeArray;
+    }
     public String nameSpecialRequest() {
         return nameSpecialRequest;
     }
@@ -173,6 +209,9 @@ public class extraFeatures extends AppCompatActivity {
         }
     }
 
+    public  List<node> getNodeArray() {
+        return NodeArray;
+    }
  //   public void setDate(DateFormat dateFormat);
 
     public void DaysTill(int _userDate) {

@@ -49,7 +49,6 @@ public class Information_ extends AppCompatActivity{
         setContentView(R.layout.activity_information_);
 
         SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-
             make = preferences.getString("makeOfCar", "");
             model = preferences.getString("modelOfCar", "");
             year = preferences.getString("yearOfCar", "");
@@ -65,7 +64,7 @@ public class Information_ extends AppCompatActivity{
             RoadSidePhone = preferences.getString("RoadSidePhoneNum", "");
             RoadEndDate = preferences.getString("RoadSideEndDate", "");
             RoadPolicyNum = preferences.getString("RoadSidePolicyNum", "");
-
+        Log.d("Making sure array =====", make);
         Log.d(TAG, "set Content View " + make);
 
        EditText MK = (EditText) findViewById(R.id.Make);
