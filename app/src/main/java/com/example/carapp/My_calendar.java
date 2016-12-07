@@ -109,7 +109,6 @@ public class My_calendar extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Button button = (Button)findViewById(R.id.addButton);
-            //button.setText("You touched the add button!");
             Intent add = new Intent(My_calendar.this, extraFeatures.class);
             startActivity(add);
             finish();

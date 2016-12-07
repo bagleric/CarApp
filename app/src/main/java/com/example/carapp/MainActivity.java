@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-
 
         Log.d("new size of array =====", String.valueOf(NodeArray.size()));
         for(int k = 0; k < NodeArray.size(); k++)
@@ -92,11 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonOil = (Button) findViewById(R.id.oilButton);
         buttonOil.setOnClickListener(oilListener);
-        Service oil = new Service();
 
         Button CalendarButton  = (Button) findViewById(R.id.ServiceCalendar);
         CalendarButton.setOnClickListener(ServiceCalendarListener);
-        Service ServiceCal = new Service();
 
     }
 
@@ -108,32 +104,34 @@ public class MainActivity extends AppCompatActivity {
             startActivity(calendar);
         }
     };
+
         private View.OnClickListener oilListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)findViewById(R.id.oilButton);
-            button.setText("Oil Changed! Great Job!");
-            Intent calendar = new Intent(MainActivity.this, My_calendar.class);
-            startActivity(calendar);
+            SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+            String oil = "Oil Change";
+            editor.putString("SpecialService", oil); //Storing string
+            editor.commit();
+            Intent add = new Intent(MainActivity.this, extraFeatures.class);
+            startActivity(add);
         }
     };
 
     private View.OnClickListener carListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)findViewById(R.id.carButton);
-            //button.setText("You Need insurance!");
             Intent information = new Intent(MainActivity.this, Information_.class);
-startActivity(information);
-            //Toast.makeText(MainActivity.this, v, Toast.LENGTH_LONG).show();
+            startActivity(information);
         }
     };
 
     private View.OnClickListener addListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)findViewById(R.id.addButton);
-            //button.setText("You touched the add button!");
+            SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+            String oil = "";
+            editor.putString("SpecialService", oil); //Storing string
+            editor.commit();
             Intent add = new Intent(MainActivity.this, extraFeatures.class);
             startActivity(add);
         }
@@ -142,11 +140,12 @@ startActivity(information);
     private View.OnClickListener tireListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)findViewById(R.id.tireButton);
-            //button.setText("You touched the tire button!");
-            Intent calendar = new Intent(MainActivity.this, My_calendar.class);
-            startActivity(calendar);
-            //Toast.makeText(MainActivity.this, ("You Need Tires!"), Toast.LENGTH_LONG).show();
+            SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+            String oil = "Tire Change";
+            editor.putString("SpecialService", oil); //Storing string
+            editor.commit();
+            Intent add = new Intent(MainActivity.this, extraFeatures.class);
+            startActivity(add);
         }
     };
 

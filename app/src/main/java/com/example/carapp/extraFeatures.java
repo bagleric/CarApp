@@ -16,7 +16,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -163,14 +165,14 @@ public static final String PREFS_NAME = "MyPrefsFile";
     public DateFormat date(){return dateFormat;}
 
     public void setNameSR(String _nameSpecialRequest) {
-
-        if (_nameSpecialRequest != "") {
-            Log.d("Special Name","State is saved");
-            this.nameSpecialRequest = _nameSpecialRequest;
-        } else {
-            Log.d("Special Name","The state is Blank and must be filled out.");
-            /* initialize app */
-        }
+//
+//        if (_nameSpecialRequest != "") {
+//            Log.d("Special Name","State is saved");
+//            this.nameSpecialRequest = _nameSpecialRequest;
+//        } else {
+//            Log.d("Special Name","The state is Blank and must be filled out.");
+//            /* initialize app */
+//        }
         this.nameSpecialRequest = _nameSpecialRequest;
     }
 
