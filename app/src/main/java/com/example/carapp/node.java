@@ -30,6 +30,13 @@ public class node {
         return setCalEvent;
     }
 
+    public String getDateInStringFormat(){
+        SimpleDateFormat format1 = new SimpleDateFormat("MM-dd-yyyy");
+        String formatted = format1.format(setCalEvent.getTime());
+        System.out.println(formatted);
+        return formatted;
+    }
+
     public String getNameSpecialRequest(){
         return nameSpecialRequest;
     }

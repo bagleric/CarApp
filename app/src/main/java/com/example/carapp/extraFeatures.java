@@ -25,9 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Mike on 11/11/2016.
@@ -70,17 +68,12 @@ public static final String PREFS_NAME = "MyPrefsFile";
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
-//        Gson gson = new Gson();
+        Gson gson = new Gson();
         json = preferences.getString(ARRAY_NAME, "");
-//        Type type = new TypeToken<ArrayList<node>>() {}.getType();
-//        NodeArray = gson.fromJson(json, NodeArray.getClass());
-if(json != null)
-        Log.d("Making sure array =====", json);
-//        Log.d("nnnew size of =====", String.valueOf(NodeArray.size()));
-//        for(int k = 0; k < NodeArray.size(); k++)
+        json = json.substring(5);
 
-//            Log.d("nkew size of =====", NodeArray.get(k).toString());
-        //requests = preferences.getStringSet("newService", requests);
+        Type type = new TypeToken<ArrayList<node>>() {}.getType();
+        NodeArray = gson.fromJson(json, type);
 
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
         EditText setOd = (EditText) findViewById(R.id.Odometer);
@@ -97,12 +90,6 @@ if(json != null)
         buttonTire.setOnClickListener(submitListener);
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();  // Always call the superclass method first
-//        Button buttonTire = (Button) findViewById(R.id.button);
-//        buttonTire.setOnClickListener(submitListener);
-//    }
 
     private View.OnClickListener submitListener= new View.OnClickListener() {
         @Override
@@ -125,12 +112,10 @@ if(json != null)
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
 
             node newNode = new node(nameSpecialRequest, calObject);
-          //  Log.d(TAG, newNode.getDateFormat().toString());
-          //  Log.d(TAG, newNode.getNameSpecialRequest());
 
             addNodeArrayAndSort(newNode);
             Gson gson = new Gson();
-//
+
             json = "value" + gson.toJson(NodeArray);
             Log.d("array =====", json);
             editor.putString(ARRAY_NAME, json);
@@ -142,25 +127,27 @@ if(json != null)
 
     public List<node> addNodeArrayAndSort(node ThisNodeObject)
     {
-        //  Log.d(TAG, "trying to add to array");
 
-        //node methodCaller = new node();
+        node methodCaller = new node();
         Log.d("object =====", ThisNodeObject.getNameSpecialRequest());
             NodeArray.add(ThisNodeObject);
               Log.d("new size of array =====", String.valueOf(NodeArray.size()));
 
-//        if (NodeArray.size() > 1) {
-//            //   Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
-//            for (int j = 0; j < NodeArray.size(); j++) {
-//                if (methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
-//                    node temp = NodeArray.get(j);
-//                    NodeArray.set(j, NodeArray.get(j + 1));
-//                    j++;
-//                    NodeArray.set(j, temp);
-//                    j = 0;
-//                }
-//            }
-//        }
+        if (NodeArray.size() > 1) {
+               Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
+            for (int j = 0; j < NodeArray.size()-1; j++) {
+                boolean i = methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1));
+                Log.d("boolean value", String.valueOf(i));
+                if (!methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
+                    Log.d("j =====", String.valueOf(j));
+                    node temp = NodeArray.get(j);
+                    NodeArray.set(j, NodeArray.get(j + 1));
+                    j++;
+                    NodeArray.set(j, temp);
+                    j = 0;
+                }
+            }
+        }
 
         return NodeArray;
     }

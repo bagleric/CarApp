@@ -183,10 +183,6 @@ startActivity(information);
     public void setDriverMiles(int Dmiles) {
         this.driverMiles = Dmiles;
     }
-    public  List<node> getNodeArray() {
-        extraFeatures e = new extraFeatures();
-        return e.NodeArray;
-    }
 
 }
 
