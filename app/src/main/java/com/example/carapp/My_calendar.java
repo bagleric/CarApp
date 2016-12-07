@@ -25,7 +25,7 @@ import java.util.List;
 public class My_calendar extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String ARRAY_NAME = "array_location";
-
+    List<node> serviceList = new ArrayList<node>();
     List<String> services = new ArrayList<String>();
     private static final String TAG = Information_.class.getSimpleName();
     @Override
@@ -80,7 +80,7 @@ public class My_calendar extends AppCompatActivity {
     private void populateServices() {
         Log.i("Calendar", "You are populating services");
         extraFeatures main = new extraFeatures();
-        List<node> serviceList = new ArrayList<node>();
+
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         Gson gson = new Gson();
