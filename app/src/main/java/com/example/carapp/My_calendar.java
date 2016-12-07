@@ -85,6 +85,8 @@ public class My_calendar extends AppCompatActivity {
 
         Gson gson = new Gson();
         String json = preferences.getString(ARRAY_NAME, "");
+        Log.i("Calendar", json);
+        if (json.length() >= 5)
         json = json.substring(5);
 
         Type type = new TypeToken<ArrayList<node>>() {}.getType();

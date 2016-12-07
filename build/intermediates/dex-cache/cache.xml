@@ -30,15 +30,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_82fbd2d46850176f4b34436bd1fce9d659dc78f2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -93,24 +84,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Mike\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\junit-4.12_42a6645a1bfdd2765aebc8a5efed47a462d6032a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_83f51be7668ae02821213ce5c4fb7b659af6fe4f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Mike\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -138,30 +111,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_738bcaa6b642ac08964f3150121825184f71d64c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="60ac300ac65fd5c5daf31f92798e8e36151b47b5">
+        sha1="6389c2ece3fcab14e29d847d86ec781736c1b66b">
         <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0a27b69ea2b0146920eab2af8764bd68255b808d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="72931c016dd03d0dfc7edf5dbdd65ebae2666f07">
-        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_68083fc25a70146dfefad6b0cb482cfc3d610785\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -171,6 +126,51 @@
         revision="24.0.3"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
         <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_302d7abc0a0854402d1aeae2c47d361e98db605e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_82fbd2d46850176f4b34436bd1fce9d659dc78f2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mike\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\junit-4.12_42a6645a1bfdd2765aebc8a5efed47a462d6032a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_83f51be7668ae02821213ce5c4fb7b659af6fe4f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_738bcaa6b642ac08964f3150121825184f71d64c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="23c00da98519af310ce5c4697186a4712cf5c66a">
+        <dex dex="C:\Users\Mike\AndroidStudioProjects\carApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_68083fc25a70146dfefad6b0cb482cfc3d610785\classes.dex" />
     </item>
     <item
         is-multidex="true"

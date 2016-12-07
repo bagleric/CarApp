@@ -69,9 +69,12 @@ public static final String PREFS_NAME = "MyPrefsFile";
         miles = preferences.getString("Miles", ""); //Storing string
         Gson gson = new Gson();
         json = preferences.getString(ARRAY_NAME, "");
+        if (json.length() >= 5)
         json = json.substring(5);
 
+
         Type type = new TypeToken<ArrayList<node>>() {}.getType();
+
         NodeArray = gson.fromJson(json, type);
 
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
@@ -126,6 +129,8 @@ public static final String PREFS_NAME = "MyPrefsFile";
 
     public List<node> addNodeArrayAndSort(node ThisNodeObject)
     {
+        if(NodeArray == null)
+        NodeArray = new ArrayList<node>();
 
         node methodCaller = new node();
         Log.d("object =====", ThisNodeObject.getNameSpecialRequest());
