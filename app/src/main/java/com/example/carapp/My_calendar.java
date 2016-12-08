@@ -108,9 +108,16 @@ public class My_calendar extends AppCompatActivity {
                 Log.d("i value", serviceList.get(i).getDateInStringFormat());
             }
         }
-if(serviceList == null)
-        services.add("You don't have any services registered.");
+
+        if(json.equals("[]")) {
+            Log.i("test===========", json);
+            services.add("You don't have any services registered.");
+        }
+
+        if(serviceList == null)
+            services.add("You don't have any services registered.");
         else if(serviceList != null) {
+
             for (int i = 0; i < serviceList.size(); i++) {
                 String thService = serviceList.get(i).getDateInStringFormat() + " " + serviceList.get(i).getNameSpecialRequest();
                 services.add(i, thService);
@@ -123,7 +130,10 @@ if(serviceList == null)
     private View.OnClickListener addListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)findViewById(R.id.addButton);
+            SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+            String NewService = "";
+            editor.putString("SpecialService", NewService); //Storing string
+            editor.commit();
             Intent add = new Intent(My_calendar.this, extraFeatures.class);
             startActivity(add);
             finish();
