@@ -57,7 +57,6 @@ public class My_calendar extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
                 // ListView Clicked item index
                 int itemPosition     = position;
 
@@ -69,6 +68,19 @@ public class My_calendar extends AppCompatActivity {
                         "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
                         .show();
                 Log.i("Calendar", "You made it to the calendar");
+
+                serviceList.remove(itemPosition);
+                SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+                Gson gson = new Gson();
+
+                String json = "value" + gson.toJson(serviceList);
+                Log.d("array =====", json);
+                editor.putString(ARRAY_NAME, json);
+                editor.commit();
+
+                Intent calendar = new Intent(My_calendar.this, My_calendar.class);
+                finish();
+                startActivity(calendar);
             }
 
         });
@@ -91,13 +103,14 @@ public class My_calendar extends AppCompatActivity {
 
         Type type = new TypeToken<ArrayList<node>>() {}.getType();
         serviceList = gson.fromJson(json, type);
-
-        for(int i =0; i < serviceList.size(); i++){
-            Log.d("i value", serviceList.get(i).getDateInStringFormat());
-        }
-
-        services.add("You don't have any services registered.");
         if(serviceList != null) {
+            for (int i = 0; i < serviceList.size(); i++) {
+                Log.d("i value", serviceList.get(i).getDateInStringFormat());
+            }
+        }
+if(serviceList == null)
+        services.add("You don't have any services registered.");
+        else if(serviceList != null) {
             for (int i = 0; i < serviceList.size(); i++) {
                 String thService = serviceList.get(i).getDateInStringFormat() + " " + serviceList.get(i).getNameSpecialRequest();
                 services.add(i, thService);
