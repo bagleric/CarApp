@@ -132,10 +132,10 @@ public class Information_ extends AppCompatActivity{
 
             for (int i = 0; i < editTextArray.size(); i++) {
                 if (editTextArray.get(i) != null) {
-                    Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
+                    //Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
                     if (!editTextArray.get(i).getText().toString().equals(""))
                         StringArray.set(i, valueOf(editTextArray.get(i).getText().toString()));
-                    Log.d(TAG, "StringArray2[]===== " + StringArray.get(i).toString());
+                   // Log.d(TAG, "StringArray2[]===== " + StringArray.get(i).toString());
                 }
             }
 
@@ -144,6 +144,7 @@ public class Information_ extends AppCompatActivity{
             editor.putString("makeOfCar", StringArray.get(0).toString()); //Storing string
             editor.putString("yearOfCar", StringArray.get(1).toString()); //Storing string
             editor.putString("modelOfCar", StringArray.get(2).toString()); //Storing string
+            if(StringArray.get(3) != null)
             editor.putString("CarOdometer", StringArray.get(3).toString()); //Storing string
             editor.putString("CarVinNumber", StringArray.get(4).toString()); //Storing string
             editor.putString("CarlicensePlateNumber", StringArray.get(5).toString()); //Storing string
