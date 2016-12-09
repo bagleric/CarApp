@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonTire = (Button) findViewById(R.id.tireButton);
         Button buttonOil = (Button) findViewById(R.id.oilButton);
-
+        if(NodeArray != null) {
         for (int i = 0; i < NodeArray.size(); i++){
                 if(NodeArray.get(i).getNameSpecialRequest().equals("Oil Change"))
                 {
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 buttonTire.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
             }
         }
-    }
+    }}
 
     @Override
     public void onResume() {

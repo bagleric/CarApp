@@ -16,11 +16,12 @@ import android.util.Log;
 
 public class AlertReceiver extends BroadcastReceiver{
 
-    String message;
+
     @Override
     public void onReceive(Context context, Intent intent) {
-Log.d("ALERT", "You Entered the AlertReceiver");
-        createNotification(context, "CarApp", "Your car has a pending service",
+        Log.d("ALERT", "You Entered the AlertReceiver");
+
+        createNotification(context, "Car Calendar", "Your car has a pending service",
                 "Alert");
     }
 
