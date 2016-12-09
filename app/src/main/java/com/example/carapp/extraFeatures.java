@@ -1,9 +1,12 @@
 package com.example.carapp;
 
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -114,6 +117,8 @@ public static final String PREFS_NAME = "MyPrefsFile";
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
 
             node newNode = new node(nameSpecialRequest, calObject);
+
+            setAlarm(nameSpecialRequest, calObject);
 
             addNodeArrayAndSort(newNode);
             Gson gson = new Gson();
@@ -267,4 +272,17 @@ public static final String PREFS_NAME = "MyPrefsFile";
     };
 
     // end of date picker dialogue.
+    public void setAlarm(String message, Calendar myCal) {
+        Long alertTime = myCal.getTimeInMillis() + 5*1000;
+        Intent alertIntent = new Intent(this, AlertReceiver.class);
+        //allows to set at different dates.
+        AlarmManager alarmManager = (AlarmManager)
+                getSystemService(Context.ALARM_SERVICE);
+        Log.d("ALERT", "you made it here.2");
+        alarmManager.set(AlarmManager.RTC_WAKEUP, alertTime,
+                PendingIntent.getBroadcast(this, 1, alertIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT));
+        Log.d("ALERT", "you made it here.3");
+    }
+
 }

@@ -18,6 +18,11 @@
         <activity android:name=".Information_"></activity>
         <activity android:name=".extraFeatures"></activity>
         <activity android:name=".My_calendar"></activity>
+        <receiver android:name=".AlertReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -11,9 +11,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.carapp.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <Button
         android:text="CarInformation"
@@ -60,28 +61,24 @@
         android:paddingEnd="20dp"
         android:textColor="@android:color/white"/>
 
-    <Button
-        android:text="Click to add a service"
-        android:gravity="center_vertical|left"
-        android:paddingLeft="20dp"
-        android:paddingRight="150dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="150dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/addButton"
-        android:layout_below="@+id/oilButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/add" />
 
     <Button
         android:text="Service Calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ServiceCalendar" />
+        android:id="@+id/ServiceCalendar"
+        android:background="@drawable/calendar"
+        android:layout_marginLeft="0sp"
+        android:layout_marginStart="0dp"/>
 
+    <Button
+            android:text="Click to add a service"
+            android:gravity="center_vertical|start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addButton"
+            android:background="@drawable/add"
+            android:layout_gravity="end" />
 
 </LinearLayout>
 
