@@ -65,7 +65,7 @@ public class My_calendar extends AppCompatActivity {
 
                 // Show Alert
                 Toast.makeText(getApplicationContext(),
-                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
+                        "Deleted Service:"+itemValue , Toast.LENGTH_LONG)
                         .show();
                 Log.i("Calendar", "You made it to the calendar");
 

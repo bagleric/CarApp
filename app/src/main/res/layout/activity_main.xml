@@ -60,7 +60,18 @@
         android:paddingStart="150dp"
         android:paddingEnd="20dp"
         android:textColor="@android:color/white"/>
-
+    <Button
+        android:text="Click to add a service"
+        android:gravity="center_vertical|start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        android:background="@drawable/add"
+        android:layout_gravity="end"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="150dp"
+        android:paddingRight="150dp"/>
 
     <Button
         android:text="Service Calendar"
@@ -69,16 +80,14 @@
         android:id="@+id/ServiceCalendar"
         android:background="@drawable/calendar"
         android:layout_marginLeft="0sp"
-        android:layout_marginStart="0dp"/>
+        android:layout_marginStart="0dp"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="150dp"
+        android:paddingRight="20dp"
+        android:paddingStart="150dp"
+        android:paddingEnd="20dp"/>
 
-    <Button
-            android:text="Click to add a service"
-            android:gravity="center_vertical|start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/addButton"
-            android:background="@drawable/add"
-            android:layout_gravity="end" />
+
 
 </LinearLayout>
 
