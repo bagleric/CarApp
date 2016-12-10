@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -27,7 +28,6 @@ import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -228,12 +228,14 @@ public static final String PREFS_NAME = "MyPrefsFile";
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
+            TextView mydate = (TextView)findViewById(R.id.textView1);
 
             year_x = year;
             month_x =  month + 1;
             day_x = dayOfMonth;
             String monthString = new DateFormatSymbols().getMonths()[month];
             Toast.makeText(extraFeatures.this, "Date set to " + monthString + " " + day_x+", " + year_x, Toast.LENGTH_LONG).show();
+            mydate.setText("Date set to " + monthString + " " + day_x+", " + year_x);
 
             //This sets the date ints into a date object
             calObject.set(Calendar.MONTH, month_x);
