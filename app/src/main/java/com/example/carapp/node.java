@@ -10,19 +10,19 @@ import java.util.Calendar;
 /**
  * Created by Mike on 12/2/2016.
  */
-
+//this node is designed to hold one service for the user
 public class node {
 
     private String nameSpecialRequest;
     Calendar setCalEvent;
     private String miles;
-
+    //node initialization
     public node () {
         nameSpecialRequest = "";
         setCalEvent = Calendar.getInstance();
         miles = "0";
     }
-
+    //set node values
     public node (String name, Calendar date, String miles) {
         this.nameSpecialRequest = name;
         this.setCalEvent = date;
@@ -32,13 +32,14 @@ public class node {
     public Calendar getDateFormat(){
         return setCalEvent;
     }
-
+    //sets the calendar event to a specific format
     public String getDateInStringFormat(){
         SimpleDateFormat format1 = new SimpleDateFormat("MM-dd-yyyy");
         String formatted = format1.format(setCalEvent.getTime());
         System.out.println(formatted);
         return formatted;
     }
+    //setters
     public String getMiles(){return miles;}
 
     public String getNameSpecialRequest(){
@@ -56,11 +57,8 @@ public class node {
     public String toString(){
         return nameSpecialRequest;
     }
-
-    public void setNode(Calendar valueDate, String ValueSpecialRequest){
-        setDateFormat(valueDate);
-        setNameSpecialRequest(ValueSpecialRequest);
-    }
+    //a compare for sorting this node with others
+    //we sort by date
     public boolean isDateOneLaterThanDateTwo(node Date1, node Date2){
        return Date1.getDateFormat().after(Date2.getDateFormat());
     }

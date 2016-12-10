@@ -72,7 +72,7 @@ public class My_calendar extends AppCompatActivity {
 
     private void populateServices() {
         Log.i("Calendar", "You are populating services");
-
+         //same as in main, but this time for the listView
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         Gson gson = new Gson();
@@ -88,28 +88,34 @@ public class My_calendar extends AppCompatActivity {
                 Log.d("i value", serviceList.get(i).getDateInStringFormat());
             }
         }
-
+        //set listView to defualt if nothing is in the array
         if(json.equals("[]")) {
             Log.i("test===========", json);
             services.add("You don't have any services registered.");
         }
-
+        //set listView to defualt if nothing is in the array
         if(serviceList == null)
             services.add("You don't have any services registered.");
         else if(serviceList != null) {
-            String finalMiles;
+            //setting up the listView
+            String finalMiles = "";
             for (int i = 0; i < serviceList.size(); i++) {
-                int tempMilesTill = Integer.parseInt(serviceList.get(i).getMiles());
-                int tempOd = Integer.parseInt(Od);
-                tempMilesTill = tempMilesTill - tempOd;
+                //the next three are for setting up the miles till service amount
+                //we convert the string values to ints subtract odometer from
+                //miles till, and then put it back to string
+                if(!serviceList.get(i).getMiles().equals("")) {
+                    int tempMilesTill = Integer.parseInt(serviceList.get(i).getMiles());
+                    int tempOd = Integer.parseInt(Od);
+                    tempMilesTill = tempMilesTill - tempOd;
 
-                if(tempMilesTill >= 0) {
-                    finalMiles = "Service in: " + Integer.toString(tempMilesTill) + " Miles";
+                    if (tempMilesTill >= 0) {
+                        finalMiles = "Service in: " + Integer.toString(tempMilesTill) + " Miles";
 
-                }else{
-                    finalMiles = "Service in: 0 Miles";
+                    } else {
+                        finalMiles = "Service in: 0 Miles";
+                    }
                 }
-
+                //display each node so the user can see their services list
                 String thService = serviceList.get(i).getDateInStringFormat() + " " + serviceList.get(i).getNameSpecialRequest() + " " + finalMiles;
                 services.add(i, thService);
                 Log.i("Calendar", "creating the list");
@@ -118,6 +124,7 @@ public class My_calendar extends AppCompatActivity {
 
     }
 
+    //same as other listeners
     private View.OnClickListener addListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {

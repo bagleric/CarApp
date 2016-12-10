@@ -47,27 +47,27 @@ public class Information_ extends AppCompatActivity{
     protected void onCreate(Bundle savedInsuranceState) {
         super.onCreate(savedInsuranceState);
         setContentView(R.layout.activity_information_);
-
+        //this opens shared preferences, and sets all the information values for the user
         SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
             make = preferences.getString("makeOfCar", "");
             model = preferences.getString("modelOfCar", "");
             year = preferences.getString("yearOfCar", "");
-            Odometer = preferences.getString("CarOdometer", GetOdometer()); //Storing string
-            licensePlateNumber = preferences.getString("CarlicensePlateNumber", ""); //Storing string
-            vinNumber = preferences.getString("CarVinNumber", ""); //Storing string
-            InsuranceName = preferences.getString("CarInsuranceName", ""); //Storing string
-            PhoneNumber = preferences.getString("PhoneNumber", ""); //Storing string
-            PolicyNumber = preferences.getString("CarPolicyNumber", ""); //Storing string
-            policyStartDate = preferences.getString("CarpolicyStartDate", ""); //Storing string
-            policyEndDate = preferences.getString("CarpolicyEndDate", ""); //Storing string
+            Odometer = preferences.getString("CarOdometer", GetOdometer()); //Getting string
+            licensePlateNumber = preferences.getString("CarlicensePlateNumber", ""); //Getting string
+            vinNumber = preferences.getString("CarVinNumber", ""); //Getting string
+            InsuranceName = preferences.getString("CarInsuranceName", ""); //Getting string
+            PhoneNumber = preferences.getString("PhoneNumber", ""); //Getting string
+            PolicyNumber = preferences.getString("CarPolicyNumber", ""); //Getting string
+            policyStartDate = preferences.getString("CarpolicyStartDate", ""); //Getting string
+            policyEndDate = preferences.getString("CarpolicyEndDate", ""); //Getting string
             CompanyName = preferences.getString("RoadSideCompanyName", "");
             RoadSidePhone = preferences.getString("RoadSidePhoneNum", "");
             RoadEndDate = preferences.getString("RoadSideEndDate", "");
             RoadPolicyNum = preferences.getString("RoadSidePolicyNum", "");
-        Log.d("Making sure array =====", make);
+        Log.d("Making sure array =====", make);//tests
         Log.d(TAG, "set Content View " + make);
 
-       EditText MK = (EditText) findViewById(R.id.Make);
+       EditText MK = (EditText) findViewById(R.id.Make);//this sets an array for ease of use later
         editTextArray.add(MK);
         EditText MDL = (EditText) findViewById(R.id.Model);
         editTextArray.add(MDL);
@@ -97,7 +97,7 @@ public class Information_ extends AppCompatActivity{
         editTextArray.add(RED);
         EditText PN = (EditText) findViewById(R.id.PolicyNum);
         editTextArray.add(PN);
-        StringArray.add(make);
+        StringArray.add(make);//same here for ease of use later
         StringArray.add(model);
         StringArray.add(year);
         StringArray.add(Odometer);
@@ -113,6 +113,7 @@ public class Information_ extends AppCompatActivity{
         StringArray.add(RoadEndDate);
         StringArray.add(RoadPolicyNum);
 
+        //this changes the value of each editText field so the user can see what is alread there
         for (int i = 0; i < editTextArray.size(); i++) {
             if (StringArray.get(i) != null) {
                 Log.d(TAG, "StringArray1[]===== " + StringArray.get(i).toString());
@@ -122,14 +123,15 @@ public class Information_ extends AppCompatActivity{
                 }
             }
         }
+        //button object, and listener
         Button buttonTire = (Button) findViewById(R.id.submitButton);
         buttonTire.setOnClickListener(submitListener);
     }
-
+     ///listens for a button click
     private View.OnClickListener submitListener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            //sets all nonblank data fields into the array
             for (int i = 0; i < editTextArray.size(); i++) {
                 if (editTextArray.get(i) != null) {
                     if (!editTextArray.get(i).getText().toString().equals(""))
@@ -137,8 +139,9 @@ public class Information_ extends AppCompatActivity{
                 }
             }
 
-
+            //editor object for shared preferences
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+            //set the array for saving in shared preferences
             editor.putString("makeOfCar", StringArray.get(0).toString()); //Storing string
             editor.putString("yearOfCar", StringArray.get(1).toString()); //Storing string
             editor.putString("modelOfCar", StringArray.get(2).toString()); //Storing string
@@ -155,13 +158,14 @@ public class Information_ extends AppCompatActivity{
             editor.putString("RoadSidePhoneNum", StringArray.get(12).toString());
             editor.putString("RoadSideEndDate", StringArray.get(13).toString());
             editor.putString("RoadSidePolicyNum", StringArray.get(14).toString());
-
+            //commit the saves
             editor.commit();
-
+            //end this activity
             finish();
          }
     };
 
+        //getters if needed
         public String GetMake() {
         return make;
     }
@@ -213,6 +217,7 @@ public class Information_ extends AppCompatActivity{
         public String GetRoadEndDate() {return RoadEndDate;}
 
         public String GetRoadPolicyNum() {return RoadPolicyNum;}
+    //setters if needed
 
     public String setMake(String mka) {return this.make = mka; }
 
