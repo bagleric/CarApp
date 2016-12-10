@@ -24,22 +24,32 @@
         android:fontFamily="sans-serif-condensed" />
 
 
-    <Button
-        android:text="Date For Next Service"
+    <TextView
+        android:text="Current Odometer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_marginLeft="90dp"
-        android:layout_width="200dp" />
+        android:id="@+id/myOdometer"
+        android:textSize="20dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="10dp" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/Odometer"
         android:hint="Update Current Odometer"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginLeft="25dp" />
+
+    <TextView
+        android:text="Maintenance Request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="20dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -48,9 +58,17 @@
         android:text=""
         android:ems="10"
         android:id="@+id/name"
-        android:hint="Name Of Maintinece Request"
-        android:layout_marginTop="10dp" />
+        android:hint="Name Of Maintenance Request"
+        android:layout_marginLeft="25dp" />
 
+    <TextView
+        android:text="Miles to Next Service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="20dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="10dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,9 +76,29 @@
         android:text=""
         android:ems="10"
         android:id="@+id/milesTill"
-        android:hint="Miles Till Next Service"
-        android:layout_marginTop="19dp" />
+        android:hint="Miles to Next Service"
+        android:layout_marginLeft="25dp" />
 
+
+    <Button
+        android:text="Select Date For Next Service"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:textSize="16dp"/>
+
+
+
+    <TextView
+        android:text="Date set to Today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textSize="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="10dp"/>
     <Button
         android:text="Submit"
         android:layout_height="wrap_content"
