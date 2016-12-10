@@ -174,17 +174,7 @@ public static final String PREFS_NAME = "MyPrefsFile";
 
     public DateFormat date(){return dateFormat;}
 
-    public void setNameSR(String _nameSpecialRequest) {
-//
-//        if (_nameSpecialRequest != "") {
-//            Log.d("Special Name","State is saved");
-//            this.nameSpecialRequest = _nameSpecialRequest;
-//        } else {
-//            Log.d("Special Name","The state is Blank and must be filled out.");
-//            /* initialize app */
-//        }
-        this.nameSpecialRequest = _nameSpecialRequest;
-    }
+    public void setNameSR(String _nameSpecialRequest) { this.nameSpecialRequest = _nameSpecialRequest; }
 
     public void setMiles(String _miles) {
         if (_miles != "") {
@@ -208,29 +198,8 @@ public static final String PREFS_NAME = "MyPrefsFile";
     public  List<node> getNodeArray() {
         return NodeArray;
     }
- //   public void setDate(DateFormat dateFormat);
 
-    public void DaysTill(int _userDate) {
-
-        if (_userDate > 1) {
-            Log.d("Set Odometer","State is saved");
-            String serviceDate;
-            Calendar currentDate = Calendar.getInstance();
-            currentDate.setTime(new Date()); // Now use today date.
-            currentDate.add(Calendar.DAY_OF_MONTH, _userDate); // Adds 15 days
-            serviceDate = dateFormat.format(currentDate.getTime());
-            Toast.makeText(extraFeatures.this, serviceDate, Toast.LENGTH_LONG).show();
-            Log.d(TAG, "new date=======================" + serviceDate);
-        } else {
-            Log.d("Set Odometer","The state is Blank and must be filled out.");
-            /* initialize app */
-        }
-
-
-    }
-
-
-    /***********************************************
+     /***********************************************
      *  The Following code implements the date picker dialog and allows
      *  a user to select a specific date.
      ***********************************************/
@@ -262,12 +231,11 @@ public static final String PREFS_NAME = "MyPrefsFile";
             day_x = dayOfMonth;
             Toast.makeText(extraFeatures.this, year_x + "/" + month_x +"/" + day_x, Toast.LENGTH_LONG).show();
 
-            /////////////////////////////////////
             //This sets the date ints into a date object
             calObject.set(Calendar.MONTH, month_x);
             calObject.set(Calendar.DATE, day_x);
             calObject.set(Calendar.YEAR, year_x);
-            //////////////////////////////////
+
         }
     };
 

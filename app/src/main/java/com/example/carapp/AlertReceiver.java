@@ -20,7 +20,6 @@ public class AlertReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("ALERT", "You Entered the AlertReceiver");
-
         createNotification(context, "Car Calendar", "Your car has a pending service",
                 "Alert");
     }

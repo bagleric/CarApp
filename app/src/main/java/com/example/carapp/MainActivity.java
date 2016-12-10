@@ -17,13 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    //String make;
     public static final String PREFS_NAME = "MyPrefsFile";
 
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-    private static final String TAG = MainActivity.class.getSimpleName();//////
+    private static final String TAG = MainActivity.class.getSimpleName();
 
 
     List<node> NodeArray = new ArrayList<node>();
@@ -36,14 +35,11 @@ public class MainActivity extends AppCompatActivity {
         node methodCaller = new node();
         if(NodeArray.size() < 1) {
             NodeArray.add(ThisNodeObject);
-          //  Log.d("Size of array =====", String.valueOf(NodeArray.size()));
         }
         else{
             NodeArray.add(ThisNodeObject);
-          //  Log.d("new size of array =====", String.valueOf(NodeArray.size()));
         }
         if(NodeArray.size() > 1) {
-         //   Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
             for (int j = 0; j < NodeArray.size(); j++) {
                 if (methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
                     node temp = NodeArray.get(j);
@@ -197,19 +193,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-//        ///////////////////////
-//        //application life cycle
-//        if (savedInstanceState != null) {
-//            // Restore value of members from saved state
-//              Log.d(TAG, "onCreate() Restoring previous state");
-//
-//        } else {
-//            // Probably initialize members with default values for a new instance
-//            Log.d(TAG, "onCreate() No saved state available");
-//            Intent add = new Intent(MainActivity.this, Information_.class);
-//            Log.d(TAG, "added intent");
-//            startActivity(add);
-//            Log.d(TAG, "started activity1");
-//        }

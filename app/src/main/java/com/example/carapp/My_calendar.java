@@ -139,11 +139,4 @@ public class My_calendar extends AppCompatActivity {
             finish();
         }
     };
-
-
-
-//public void addService(Service theService){
-//    services[services.length] = theService.name + ": " + theService.getNextServiceDate() + " or " + theService.getNextServiceMiles();
-//}
-
 }

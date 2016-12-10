@@ -132,10 +132,8 @@ public class Information_ extends AppCompatActivity{
 
             for (int i = 0; i < editTextArray.size(); i++) {
                 if (editTextArray.get(i) != null) {
-                    //Log.d(TAG, "editTextArray2.get()=======================" + editTextArray.get(i).getText().toString());
                     if (!editTextArray.get(i).getText().toString().equals(""))
                         StringArray.set(i, valueOf(editTextArray.get(i).getText().toString()));
-                   // Log.d(TAG, "StringArray2[]===== " + StringArray.get(i).toString());
                 }
             }
 
@@ -215,10 +213,8 @@ public class Information_ extends AppCompatActivity{
         public String GetRoadEndDate() {return RoadEndDate;}
 
         public String GetRoadPolicyNum() {return RoadPolicyNum;}
-    /////////////////////////////////////////////////////////////////////////////
-    public String setMake(String mka) {
-        Log.d(TAG, "=====setMake===" + mka);
-        return this.make = mka; }
+
+    public String setMake(String mka) {return this.make = mka; }
 
     public String setModel(String mdl) { return this.model = mdl; }
 
@@ -256,118 +252,3 @@ public class Information_ extends AppCompatActivity{
 
     public String setRoadPolicyNum(String RPN) { return this.RoadPolicyNum = RPN;}
 }
-
-
-//            Log.d(TAG, "onCreate() Restoring previous state");
-//            TextView MK = (TextView) findViewById(R.id.Make);
-//            TextView YR = (TextView) findViewById(R.id.Year);
-//            TextView ODOM = (TextView) findViewById(R.id.Odometer);
-//            TextView LPN = (TextView) findViewById(R.id.License);
-//            TextView INM = (TextView) findViewById(R.id.IName);
-//            TextView PHN = (TextView) findViewById(R.id.Phone);
-//            TextView MDL = (TextView) findViewById(R.id.Model);
-//            TextView END = (TextView) findViewById(R.id.EndDate);
-//            TextView EFD = (TextView) findViewById(R.id.effectiveDate);
-//            TextView P = (TextView) findViewById(R.id.Policy);
-//            TextView VN = (TextView) findViewById(R.id.vinNum);
-//
-//        if(!make.equals(""))
-//            MK.setHint(make);
-//        if(!model.equals(""))
-//            MDL.setHint(model);
-//        if(!year.equals(""))
-//            YR.setHint(year);
-//        if(Odometer != null)
-//            ODOM.setHint(Odometer);
-//        if(!licensePlateNumber.equals(""))
-//            LPN.setHint(licensePlateNumber);
-//        if(!vinNumber.equals(""))
-//            VN.setHint(vinNumber);
-//        if(!InsuranceName.equals(""))
-//            INM.setHint(InsuranceName);
-//        if(!PhoneNumber.equals(""))
-//            PHN.setHint(PhoneNumber);
-//        if(!PolicyNumber.equals(""))
-//            P.setHint(PolicyNumber);
-//        if(!policyStartDate.equals(""))
-//            EFD.setHint(policyStartDate);
-//        if(!policyEndDate.equals(""))
-//            END.setHint(policyEndDate);
-//        if(!CompanyName.equals(""))
-//            CN.setHint(CompanyName);
-//        if(!RoadSidePhone.equals(""))
-//            RSP.setHint(RoadSidePhone);
-//        if(!RoadEndDate.equals(""))
-//            RED.setHint(RoadEndDate);
-//        if(!RoadPolicyNum.equals(""))
-//            PN.setHint(RoadPolicyNum);
-////////////////////////////////////////////////////////////////////
-    //  Button button = (Button)findViewById(R.id.button);
-    /////EditText mEdit1;
-    //we need this just commented out for testing
-//            ArrayList<EditText> message = new ArrayList<EditText>();
-//            RelativeLayout activity_information_ = (RelativeLayout) findViewById( R.id.activity_information_);
-
-//            for( int i = 0; i < activity_information_.getChildCount(); i++ )
-//                if(activity_information_.getChildAt(i) instanceof EditText)
-//                    message.add((EditText) activity_information_.getChildAt(i));
-    /////TextView MK = (TextView) findViewById(R.id.Make);
-    //here the program is grabbing the children textViews, but I need to correlate them with the setters
-    ///// mEdit1 = (EditText) MK;
-    // message.add(mEdit1);
-
-    // setMake(mEdit1.toString());
-//    EditText MK = (EditText) findViewById(R.id.Make);
-//    setMake(MK.getText().toString());
-//        StringBuilder sb = new StringBuilder();
-//        sb.append(make);
-//
-//        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-//        editor.putString(PREFS_NAME, make); //Storing string
-//        editor.commit();
-///////////////////////////////
-//        if (savedInsuranceState != null) {
-////            SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-////            make = preferences.getString(PREFS_NAME, make); // getting string
-////            Log.d(TAG, "=====" + make);
-////            EditText MK = (EditText) findViewById(R.id.Make);
-////            StringBuilder sb = new StringBuilder();
-////            sb.append(MK);
-////            String strI = sb.toString();
-////            MK.setHint(strI);
-//
-//        } else {
-//            Log.d(TAG, "onCreate() No saved state available");
-//        }
-//
-//
-//            if(!MK.getText().toString().equals(""))
-//                make = MK.getText().toString();
-//            if(!MDL.getText().toString().equals(""))
-//                model = MDL.getText().toString();
-//            if(!YR.getText().toString().equals(""))
-//                year = YR.getText().toString();
-//            if(!ODOM.getText().toString().equals(""))
-//                Odometer = ODOM.getText().toString();
-//            if(!LPN.getText().toString().equals(""))
-//                licensePlateNumber = LPN.getText().toString();
-//            if(!VN.getText().toString().equals(""))
-//                vinNumber = VN.getText().toString();
-//            if(!INM.getText().toString().equals(""))
-//                InsuranceName = INM.getText().toString();
-//            if(!PHN.getText().toString().equals(""))
-//                PhoneNumber = PHN.getText().toString();
-//            if(!P.getText().toString().equals(""))
-//                PolicyNumber = P.getText().toString();
-//            if(!EFD.getText().toString().equals(""))
-//                policyStartDate = EFD.getText().toString();
-//            if(!END.getText().toString().equals(""))
-//                policyEndDate = END.getText().toString();
-//            if(!CN.getText().toString().equals(""))
-//                CompanyName = CN.getText().toString();
-//            if(!RSP.getText().toString().equals(""))
-//                RoadSidePhone = RSP.getText().toString();
-//            if(!RED.getText().toString().equals(""))
-//                RoadEndDate = RED.getText().toString();
-//            if(!PN.getText().toString().equals(""))
-//                RoadPolicyNum = PN.getText().toString();
