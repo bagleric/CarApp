@@ -60,7 +60,7 @@ public static final String PREFS_NAME = "MyPrefsFile";
         super.onCreate(savedExtraFeaturesState);
         setContentView(R.layout.extra_features);
         SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        final android.icu.util.Calendar cal = android.icu.util.Calendar.getInstance();
+        final Calendar cal = Calendar.getInstance();
 
         year_x = cal.get(Calendar.YEAR);
         month_x = cal.get(Calendar.MONTH);

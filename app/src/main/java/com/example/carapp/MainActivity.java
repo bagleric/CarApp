@@ -22,45 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private int oilMiles;
     private int tireMiles;
     private int driverMiles;
-    private static final String TAG = MainActivity.class.getSimpleName();
-
 
     List<node> NodeArray = new ArrayList<node>();
     public static final String ARRAY_NAME = "array_location";
 
-    public List<node> addToNodeArrayAndSort(node ThisNodeObject)
-    {
-
-        Log.d(TAG, "trying to add to array");
-        node methodCaller = new node();
-        if(NodeArray.size() < 1) {
-            NodeArray.add(ThisNodeObject);
-        }
-        else{
-            NodeArray.add(ThisNodeObject);
-        }
-        if(NodeArray.size() > 1) {
-            for (int j = 0; j < NodeArray.size(); j++) {
-                if (methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
-                    node temp = NodeArray.get(j);
-                    NodeArray.set(j, NodeArray.get(j + 1));
-                    j++;
-                    NodeArray.set(j, temp);
-                    j = 0;
-                }
-            }
-        }
-        Log.d("new size of array =====", String.valueOf(NodeArray.size()));
-        for(int k = 0; k < NodeArray.size(); k++)
-            Log.d("new size of array =====", NodeArray.get(k).toString());
-
-        SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(NodeArray);
-        editor.putString(TAG, json);
-        editor.commit();
-        return NodeArray;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +49,12 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < NodeArray.size(); i++){
                 if(NodeArray.get(i).getNameSpecialRequest().equals("Oil Change"))
                 {
+                    if(!NodeArray.get(i).getDateFormat().equals(""))
                     buttonOil.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
                 }
             if(NodeArray.get(i).getNameSpecialRequest().equals("Tire Change"))
             {
+                if(!NodeArray.get(i).getDateFormat().equals(""))
                 buttonTire.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
             }
         }
@@ -96,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
-
 
         Button buttonTire = (Button) findViewById(R.id.tireButton);
         buttonTire.setOnClickListener(tireListener);
