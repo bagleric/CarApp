@@ -71,14 +71,12 @@ public static final String PREFS_NAME = "MyPrefsFile";
         CurrentOdometer = preferences.getString("CarOdometer", info.GetOdometer());
         nameSpecialRequest = preferences.getString("SpecialService", ""); //Storing string
         miles = preferences.getString("Miles", ""); //Storing string
+        //same as main
         Gson gson = new Gson();
         json = preferences.getString(ARRAY_NAME, "");
         if (json.length() >= 5)
         json = json.substring(5);
-
-
         Type type = new TypeToken<ArrayList<node>>() {}.getType();
-
         NodeArray = gson.fromJson(json, type);
 
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
@@ -116,24 +114,31 @@ public static final String PREFS_NAME = "MyPrefsFile";
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
-
+            //this calculates the miles till by adding the user number to
+            //the current number
             if(!miles.equals("")) {
+                //convert strings to ints
                 int tempMiles = Integer.parseInt(miles);
                 int tempOdometer = Integer.parseInt(CurrentOdometer);
+                //add them
                 tempOdometer += tempMiles;
+                //convert them back to strings
                 miles = Integer.toString(tempOdometer);
             }
+            //set up a node
             node newNode = new node(nameSpecialRequest, calObject, miles);
 
             setAlarm(nameSpecialRequest, calObject);
-
+            //add the node to the array, and sort it
             addNodeArrayAndSort(newNode);
             Gson gson = new Gson();
 
             json = "value" + gson.toJson(NodeArray);
             Log.d("array =====", json);
             editor.putString(ARRAY_NAME, json);
+            //save arrayed string to sharedPrefferences
             editor.commit();
+            //end activity
             finish();
 
         }
@@ -141,31 +146,35 @@ public static final String PREFS_NAME = "MyPrefsFile";
 
     public List<node> addNodeArrayAndSort(node ThisNodeObject)
     {
+        //no null nodes please
         if(NodeArray == null)
         NodeArray = new ArrayList<node>();
-
+        //node object
         node methodCaller = new node();
         Log.d("object =====", ThisNodeObject.getNameSpecialRequest());
             NodeArray.add(ThisNodeObject);
               Log.d("new size of array =====", String.valueOf(NodeArray.size()));
-
+        //make sure there's enough to sort
         if (NodeArray.size() > 1) {
-               Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size()));
+               Log.d("Size 0 why am I here?!", String.valueOf(NodeArray.size())); //test
             for (int j = 0; j < NodeArray.size()-1; j++) {
+                //check two nodes
                 boolean i = methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1));
-                Log.d("boolean value", String.valueOf(i));
+                Log.d("boolean value", String.valueOf(i));//test
+                //if neighbor nodes need to change positions make it so
                 if (!methodCaller.isDateOneLaterThanDateTwo(NodeArray.get(j), NodeArray.get(j + 1))) {
-                    Log.d("j =====", String.valueOf(j));
+                    Log.d("j =====", String.valueOf(j));//test
                     node temp = NodeArray.get(j);
                     NodeArray.set(j, NodeArray.get(j + 1));
                     j++;
                     NodeArray.set(j, temp);
-                    j = 0;
+                    //bubble sorts are slow, but easy to make
+                    j = 0;//start over till all is sorted
                 }
             }
         }
 
-        return NodeArray;
+        return NodeArray;//return sorted arrayList
     }
     public String nameSpecialRequest() {
         return nameSpecialRequest;
