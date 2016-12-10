@@ -117,7 +117,13 @@ public static final String PREFS_NAME = "MyPrefsFile";
             info.setOdometer(CurrentOdometer);
             editor.putString("CarOdometer", info.GetOdometer()); //Storing string
 
-            node newNode = new node(nameSpecialRequest, calObject);
+            if(!miles.equals("")) {
+                int tempMiles = Integer.parseInt(miles);
+                int tempOdometer = Integer.parseInt(CurrentOdometer);
+                tempOdometer += tempMiles;
+                miles = Integer.toString(tempOdometer);
+            }
+            node newNode = new node(nameSpecialRequest, calObject, miles);
 
             setAlarm(nameSpecialRequest, calObject);
 

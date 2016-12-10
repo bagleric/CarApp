@@ -29,7 +29,7 @@ public class My_calendar extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String ARRAY_NAME = "array_location";
     private static final String TAG = Information_.class.getSimpleName();
-
+    private String Od;
     List<node> serviceList = new ArrayList<node>();
     List<String> services = new ArrayList<String>();
 
@@ -37,6 +37,10 @@ public class My_calendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_calendar);
+
+        SharedPreferences  preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        Information_ info = new Information_();
+        Od = preferences.getString("CarOdometer", info.GetOdometer());
 
         final ListView listView = (ListView) findViewById(R.id.serviceList);
 
@@ -95,7 +99,12 @@ public class My_calendar extends AppCompatActivity {
         else if(serviceList != null) {
 
             for (int i = 0; i < serviceList.size(); i++) {
-                String thService = serviceList.get(i).getDateInStringFormat() + " " + serviceList.get(i).getNameSpecialRequest();
+                int tempMilesTill = Integer.parseInt(serviceList.get(i).getMiles());
+                int tempOd = Integer.parseInt(Od);
+                tempMilesTill = tempMilesTill - tempOd;
+                String finalMiles = "Service in: " + Integer.toString(tempMilesTill) + " Miles";
+
+                String thService = serviceList.get(i).getDateInStringFormat() + " " + serviceList.get(i).getNameSpecialRequest() + " " + finalMiles;
                 services.add(i, thService);
                 Log.i("Calendar", "creating the list");
             }

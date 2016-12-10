@@ -15,15 +15,18 @@ public class node {
 
     private String nameSpecialRequest;
     Calendar setCalEvent;
+    private String miles;
 
     public node () {
         nameSpecialRequest = "";
         setCalEvent = Calendar.getInstance();
+        miles = "0";
     }
 
-    public node (String name, Calendar date) {
+    public node (String name, Calendar date, String miles) {
         this.nameSpecialRequest = name;
         this.setCalEvent = date;
+        this.miles = miles;
     }
 
     public Calendar getDateFormat(){
@@ -36,6 +39,7 @@ public class node {
         System.out.println(formatted);
         return formatted;
     }
+    public String getMiles(){return miles;}
 
     public String getNameSpecialRequest(){
         return nameSpecialRequest;
@@ -46,6 +50,8 @@ public class node {
     public void setNameSpecialRequest(String tempSpecialRequest){
         this.nameSpecialRequest = tempSpecialRequest;
     }
+
+    public void setMiles(String miles) {this.miles = miles;}
 
     public String toString(){
         return nameSpecialRequest;
