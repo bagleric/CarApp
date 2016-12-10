@@ -97,12 +97,18 @@ public class My_calendar extends AppCompatActivity {
         if(serviceList == null)
             services.add("You don't have any services registered.");
         else if(serviceList != null) {
-
+            String finalMiles;
             for (int i = 0; i < serviceList.size(); i++) {
                 int tempMilesTill = Integer.parseInt(serviceList.get(i).getMiles());
                 int tempOd = Integer.parseInt(Od);
                 tempMilesTill = tempMilesTill - tempOd;
-                String finalMiles = "Service in: " + Integer.toString(tempMilesTill) + " Miles";
+
+                if(tempMilesTill >= 0) {
+                    finalMiles = "Service in: " + Integer.toString(tempMilesTill) + " Miles";
+
+                }else{
+                    finalMiles = "Service in: 0 Miles";
+                }
 
                 String thService = serviceList.get(i).getDateInStringFormat() + " " + serviceList.get(i).getNameSpecialRequest() + " " + finalMiles;
                 services.add(i, thService);
