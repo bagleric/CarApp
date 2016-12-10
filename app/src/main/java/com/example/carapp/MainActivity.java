@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button CalendarButton  = (Button) findViewById(R.id.ServiceCalendar);
         CalendarButton.setOnClickListener(ServiceCalendarListener);
-
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         Gson gson = new Gson();
@@ -90,24 +89,24 @@ public class MainActivity extends AppCompatActivity {
 
         Type type = new TypeToken<ArrayList<node>>() {}.getType();
         NodeArray = gson.fromJson(json, type);
+        buttonOil.setText("Next oil change");
+        buttonTire.setText("Next Tire Service");
 
-        if(NodeArray != null) {
-            for (int i = 0; i < NodeArray.size(); i++){
-                if(NodeArray.get(i).getNameSpecialRequest().equals("Oil Change"))
-                {
-                   if(!NodeArray.get(i).getDateFormat().equals(""))
-                        buttonOil.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
-                   else
-                        buttonOil.setText("Next oil change");
-                }
-                if(NodeArray.get(i).getNameSpecialRequest().equals("Tire Change"))
-                {
-                    if(!NodeArray.get(i).getDateFormat().equals(""))
-                        buttonTire.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
-                    else
-                        buttonTire.setText("Next Tire Service");
-                }
+
+        Log.d("NodeArray Size =====", Integer.toString( NodeArray.size()));
+
+        for (int i = 0; i < NodeArray.size(); i++){
+            if(NodeArray.get(i).getNameSpecialRequest().equals("Oil Change"))
+            {
+                if(!NodeArray.get(i).getDateFormat().equals(""))
+                    buttonOil.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
             }
+            if(NodeArray.get(i).getNameSpecialRequest().equals("Tire Change"))
+            {
+                if(!NodeArray.get(i).getDateFormat().equals(""))
+                    buttonTire.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
+            }
+
         }
 
     }
