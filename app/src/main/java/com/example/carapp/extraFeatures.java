@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -226,10 +227,13 @@ public static final String PREFS_NAME = "MyPrefsFile";
     private DatePickerDialog.OnDateSetListener dPickerListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+
             year_x = year;
             month_x =  month + 1;
             day_x = dayOfMonth;
-            Toast.makeText(extraFeatures.this, year_x + "/" + month_x +"/" + day_x, Toast.LENGTH_LONG).show();
+            String monthString = new DateFormatSymbols().getMonths()[month];
+            Toast.makeText(extraFeatures.this, "Date set to " + monthString + " " + day_x+", " + year_x, Toast.LENGTH_LONG).show();
 
             //This sets the date ints into a date object
             calObject.set(Calendar.MONTH, month_x);
