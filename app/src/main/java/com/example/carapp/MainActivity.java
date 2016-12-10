@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 buttonTire.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
             }
         }
-    }}
+    }
+    }
 
     @Override
     public void onResume() {
@@ -79,6 +80,36 @@ public class MainActivity extends AppCompatActivity {
         Button CalendarButton  = (Button) findViewById(R.id.ServiceCalendar);
         CalendarButton.setOnClickListener(ServiceCalendarListener);
 
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        Gson gson = new Gson();
+        String json = preferences.getString(ARRAY_NAME, "");
+        Log.i("Calendar", json);
+        if (json.length() >= 5)
+            json = json.substring(5);
+
+        Type type = new TypeToken<ArrayList<node>>() {}.getType();
+        NodeArray = gson.fromJson(json, type);
+
+        if(NodeArray != null) {
+            for (int i = 0; i < NodeArray.size(); i++){
+                if(NodeArray.get(i).getNameSpecialRequest().equals("Oil Change"))
+                {
+                   if(!NodeArray.get(i).getDateFormat().equals(""))
+                        buttonOil.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
+                   else
+                        buttonOil.setText("Next oil change");
+                }
+                if(NodeArray.get(i).getNameSpecialRequest().equals("Tire Change"))
+                {
+                    if(!NodeArray.get(i).getDateFormat().equals(""))
+                        buttonTire.setText(NodeArray.get(i).getDateInStringFormat() + " " + NodeArray.get(i).getNameSpecialRequest());
+                    else
+                        buttonTire.setText("Next Tire Service");
+                }
+            }
+        }
+
     }
 
     private View.OnClickListener ServiceCalendarListener= new View.OnClickListener() {
@@ -87,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             Button button = (Button)findViewById(R.id.ServiceCalendar);
             Intent calendar = new Intent(MainActivity.this, My_calendar.class);
             startActivity(calendar);
+
         }
     };
 

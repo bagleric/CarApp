@@ -186,9 +186,9 @@
         android:ems="10"
         android:focusable="false"
         android:layout_below="@+id/editText4"
-        android:layout_alignRight="@+id/submitButton"
-        android:layout_alignEnd="@+id/submitButton"
-        android:id="@+id/editText5" />
+        android:id="@+id/editText5"
+        android:layout_toLeftOf="@+id/Make"
+        android:layout_toStartOf="@+id/Make" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -212,7 +212,9 @@
         android:layout_below="@+id/InsuranceInformation"
         android:layout_alignLeft="@+id/editText6"
         android:layout_alignStart="@+id/editText6"
-        android:id="@+id/editText7" />
+        android:id="@+id/editText7"
+        android:layout_alignRight="@+id/editText6"
+        android:layout_alignEnd="@+id/editText6" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -224,7 +226,9 @@
         android:layout_below="@+id/editText7"
         android:layout_alignLeft="@+id/editText7"
         android:layout_alignStart="@+id/editText7"
-        android:id="@+id/editText8" />
+        android:id="@+id/editText8"
+        android:layout_alignRight="@+id/editText7"
+        android:layout_alignEnd="@+id/editText7" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -259,7 +263,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/CompanyName"
-        android:hint="Company Name"
+        android:hint="Company "
         android:layout_below="@+id/RoadAssist"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -302,7 +306,9 @@
         android:layout_below="@+id/editText8"
         android:layout_alignLeft="@+id/editText8"
         android:layout_alignStart="@+id/editText8"
-        android:id="@+id/editText9" />
+        android:id="@+id/editText9"
+        android:layout_alignRight="@+id/editText8"
+        android:layout_alignEnd="@+id/editText8" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -314,7 +320,9 @@
         android:layout_below="@+id/editText9"
         android:layout_alignLeft="@+id/editText9"
         android:layout_alignStart="@+id/editText9"
-        android:id="@+id/editText10" />
+        android:id="@+id/editText10"
+        android:layout_alignRight="@+id/editText9"
+        android:layout_alignEnd="@+id/editText9" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -326,19 +334,23 @@
         android:id="@+id/editText11"
         android:layout_below="@+id/editText10"
         android:layout_alignLeft="@+id/editText10"
-        android:layout_alignStart="@+id/editText10" />
+        android:layout_alignStart="@+id/editText10"
+        android:layout_alignRight="@+id/editText10"
+        android:layout_alignEnd="@+id/editText10" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Company Name"
+        android:text="Company "
         android:ems="10"
         android:focusable="false"
         android:layout_above="@+id/RoadSidePhone"
         android:layout_alignLeft="@+id/editText11"
         android:layout_alignStart="@+id/editText11"
-        android:id="@+id/editText12" />
+        android:id="@+id/editText12"
+        android:layout_alignRight="@+id/editText11"
+        android:layout_alignEnd="@+id/editText11" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -362,7 +374,9 @@
         android:id="@+id/editText14"
         android:layout_below="@+id/editText13"
         android:layout_alignLeft="@+id/editText13"
-        android:layout_alignStart="@+id/editText13" />
+        android:layout_alignStart="@+id/editText13"
+        android:layout_alignRight="@+id/editText13"
+        android:layout_alignEnd="@+id/editText13" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -374,7 +388,9 @@
         android:id="@+id/editText4"
         android:layout_below="@+id/editText3"
         android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_alignStart="@+id/editText5"
+        android:layout_toLeftOf="@+id/Make"
+        android:layout_toStartOf="@+id/Make" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -386,7 +402,9 @@
         android:id="@+id/editText3"
         android:layout_below="@+id/editText2"
         android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4" />
+        android:layout_alignStart="@+id/editText4"
+        android:layout_toLeftOf="@+id/Make"
+        android:layout_toStartOf="@+id/Make" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -398,7 +416,9 @@
         android:id="@+id/editText2"
         android:layout_below="@+id/editText"
         android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_alignStart="@+id/editText3"
+        android:layout_toLeftOf="@+id/Make"
+        android:layout_toStartOf="@+id/Make" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -410,7 +430,9 @@
         android:id="@+id/editText"
         android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignStart="@+id/editText2"
+        android:layout_toLeftOf="@+id/Make"
+        android:layout_toStartOf="@+id/Make" />
 
     <TextView
         android:text="Roadside Assistance Info"
@@ -465,7 +487,9 @@
         android:layout_below="@+id/RoadEndDate"
         android:layout_alignLeft="@+id/editText14"
         android:layout_alignStart="@+id/editText14"
-        android:id="@+id/editText16" />
+        android:id="@+id/editText16"
+        android:layout_toLeftOf="@+id/submitButton"
+        android:layout_toStartOf="@+id/submitButton" />
 
 </RelativeLayout>
 </ScrollView>
