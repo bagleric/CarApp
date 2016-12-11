@@ -20,30 +20,33 @@ public class AlertReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("ALERT", "You Entered the AlertReceiver");
+
         createNotification(context, "Car Calendar", "Your car has a pending service",
                 "Alert");
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void createNotification(Context context, String msg, String msgText, String msgAlert) {
-
+        //tell it where to go if the notification is clicked
         PendingIntent notificIntent = PendingIntent.getActivity(context, 0,
                 new Intent(context, MainActivity.class), 0);
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+
+        //build the actual notification
+        NotificationCompat.Builder myBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.tire)
                 .setContentTitle(msg)
                 .setTicker(msgAlert)
                 .setContentText(msgText);
 
-        mBuilder.setContentIntent(notificIntent);
+        myBuilder.setContentIntent(notificIntent);
 
-        mBuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
+        myBuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
 
-        mBuilder.setAutoCancel(true);
+        myBuilder.setAutoCancel(true);
 
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(1,mBuilder.build());
+        mNotificationManager.notify(1,myBuilder.build());
 
     }
 }

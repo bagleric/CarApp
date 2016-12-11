@@ -141,11 +141,13 @@ public class My_calendar extends AppCompatActivity {
 
     public void showCancelDialog(final ListView listView, final int position) {
 
+        //build a new alert
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
+        // set alert content
         alertDialog.setTitle("Delete Service");
         alertDialog.setMessage("Are you Sure you want to Delete This Item?");
-
+         // if yes is selected we delete the selected item
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -175,6 +177,8 @@ public class My_calendar extends AppCompatActivity {
 
             }
         });
+
+        //otherwise we delete the selected item
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

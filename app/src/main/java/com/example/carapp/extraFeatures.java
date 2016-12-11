@@ -65,6 +65,8 @@ public static final String PREFS_NAME = "MyPrefsFile";
         year_x = cal.get(Calendar.YEAR);
         month_x = cal.get(Calendar.MONTH);
         day_x = cal.get(Calendar.DAY_OF_MONTH);
+
+        //if clicked this will display the date picker dialog
         ShowDialogOnButtonClick();
 
         Information_ info = new Information_();
@@ -76,7 +78,9 @@ public static final String PREFS_NAME = "MyPrefsFile";
         json = preferences.getString(ARRAY_NAME, "");
         if (json.length() >= 5)
         json = json.substring(5);
+
         Type type = new TypeToken<ArrayList<node>>() {}.getType();
+
         NodeArray = gson.fromJson(json, type);
 
         EditText _nameSpecialR = (EditText) findViewById(R.id.name);
@@ -128,8 +132,10 @@ public static final String PREFS_NAME = "MyPrefsFile";
             //set up a node
             node newNode = new node(nameSpecialRequest, calObject, miles);
 
-            setAlarm(nameSpecialRequest, calObject);
+            //set the alarm with the specific date
+            setAlarm(calObject);
             //add the node to the array, and sort it
+
             addNodeArrayAndSort(newNode);
             Gson gson = new Gson();
 
@@ -216,8 +222,7 @@ public static final String PREFS_NAME = "MyPrefsFile";
     }
 
      /***********************************************
-     *  The Following code implements the date picker dialog and allows
-     *  a user to select a specific date.
+     *  The Following code implements the date picker dialog
      ***********************************************/
     public void ShowDialogOnButtonClick() {
         btn = (Button) findViewById(R.id.button2);
@@ -248,8 +253,12 @@ public static final String PREFS_NAME = "MyPrefsFile";
             year_x = year;
             month_x =  month + 1;
             day_x = dayOfMonth;
+
             String monthString = new DateFormatSymbols().getMonths()[month];
-            Toast.makeText(extraFeatures.this, "Date set to " + monthString + " " + day_x+", " + year_x, Toast.LENGTH_LONG).show();
+
+            Toast.makeText(extraFeatures.this, "Date set to " + monthString + " " + day_x+", "
+                    + year_x, Toast.LENGTH_LONG).show();
+            //update the Date text for the user.
             mydate.setText("Date set to " + monthString + " " + day_x+", " + year_x);
 
             //This sets the date ints into a date object
@@ -261,17 +270,18 @@ public static final String PREFS_NAME = "MyPrefsFile";
     };
 
     // end of date picker dialogue.
-    public void setAlarm(String message, Calendar myCal) {
+    public void setAlarm(Calendar myCal) {
+        //get the alert time
         Long alertTime = myCal.getTimeInMillis() + 5*1000;
+
+        //create the intent
         Intent alertIntent = new Intent(this, AlertReceiver.class);
-        //allows to set at different dates.
-        AlarmManager alarmManager = (AlarmManager)
-                getSystemService(Context.ALARM_SERVICE);
-        Log.d("ALERT", "you made it here.2");
+
+        //creates an alarm for the specific date
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
         alarmManager.set(AlarmManager.RTC_WAKEUP, alertTime,
-                PendingIntent.getBroadcast(this, 1, alertIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT));
-        Log.d("ALERT", "you made it here.3");
+                PendingIntent.getBroadcast(this, 1, alertIntent,PendingIntent.FLAG_UPDATE_CURRENT));
     }
 
 
